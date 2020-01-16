@@ -1,18 +1,62 @@
 import React, { Component } from "react"
 import "./SignupForm.css"
+import TextField from '@material-ui/core/TextField';
+
+//import our service
+import SocialAppService from "../../socialAppService";
 
 class SignupForm extends Component {
-    constructor (props) {
-        super (props)
+    constructor(props) {
+        super(props)
+        this.client = new SocialAppService;
+        this.state = {
+            formData: {
+                username: "",
+                displayName: "",
+                password: ""
+            }
+        }
     }
 
-    render () {
+    handleChange = (event) => {
+        let formData = this.state.formData;
+        formData[event.target.name] = event.target.value;
+        this.setState({formData});
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        return this.client.createNewUser(this.state.formData)
+    }
+
+    render() {
         return (
-        <form>
-            <input value="Username"/>
-            <label>Display Name</label>
-            <label>Password</label>
-        </form>
+            <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
+                <TextField
+                    required
+                    id="outlined-required"
+                    name="username"
+                    label="Username"
+                    variant="outlined"
+                />
+                <TextField
+                    required
+                    id="outlined-required"
+                    name="displayName"
+                    label="Display Name"
+                    variant="outlined"
+                />
+                <TextField
+                    required
+                    id="outlined-password-input"
+                    name="password"
+                    label="Password"
+                    type="password"
+                    autoComplete="current-password"
+                    variant="outlined"
+                />
+                <button>Submit</button>
+            </form>
         )
     }
 }
