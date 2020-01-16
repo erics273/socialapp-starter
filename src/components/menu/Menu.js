@@ -36,6 +36,7 @@ function Menu(props) {
             Kritter
           </Typography>
           {props.isAuthenticated && (
+
           <div id="menu-links">
             <Link to="/messagefeed">Message Feed</Link>
             <Link to="/" onClick={handleLogout}>
