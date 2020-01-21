@@ -10,6 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import socialAppService from '../../socialAppService';
 
 
+import SocialAppService from "../../socialAppService";
+
 const useStyles = makeStyles({
   card: {
     maxWidth: 500,
@@ -19,7 +21,13 @@ const useStyles = makeStyles({
   },
 });
 
-function UserInfo() {
+
+
+export default function SimpleCard(props) {
+  const handleDelete = event => {
+    const client = new SocialAppService()
+    client.deleteUser(props.username)
+  }
   const classes = useStyles();
 
   const handleSetPicture = event=> {
@@ -61,7 +69,8 @@ function UserInfo() {
         <Button size="small" color="primary">
           Update
         </Button>
-        
+        <Button onClick={handleDelete} size="small">Delete</Button>
+
       </CardActions>
     </Card>
 

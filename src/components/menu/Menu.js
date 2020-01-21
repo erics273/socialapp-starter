@@ -42,7 +42,7 @@ function Menu(props) {
           {props.isAuthenticated && (
 
             <div id="menu-links">
-              <Link to="/messagefeed"> <Button className={classes.menuButton}>Message Feed</Button> </Link>
+              {/* <Link to="/messagefeed"> <Button className={classes.menuButton}>Message Feed</Button> </Link> */}
               <Link to="/" onClick={handleLogout}>
                 <Button className={classes.menuButton}>Logout</Button>
               </Link>

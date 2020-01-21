@@ -12,10 +12,11 @@ class Profile extends React.Component {
       <>
         <Menu isAuthenticated={this.props.isAuthenticated} />
         <h2>Profile</h2>
-        <UserInfo/>
         <br/>
         <CreateMessage/>
         <br/>
+        <UserInfo username={this.props.match.params.username}/>
+        <br />
         <MessageFeed/>
         
       </>
