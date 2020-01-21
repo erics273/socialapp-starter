@@ -31,7 +31,7 @@ class SignupForm extends Component {
 
     render() {
         return (
-            <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
+            <form className='signup' onChange={this.handleChange} onSubmit={this.handleSubmit}>
                 <TextField
                     required
                     className="outlined-required"
