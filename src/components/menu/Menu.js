@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import "./Menu.css";
 import { withAsyncAction } from "../../HOCs";
 import Button from '@material-ui/core/Button';
+import LoginForm from '../loginForm/LoginForm';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 
 function Menu(props) {
   const classes = useStyles();
-  
+
   const handleLogout = event => {
     event.preventDefault();
     props.logout();
@@ -39,14 +41,15 @@ function Menu(props) {
           </Typography>
           {props.isAuthenticated && (
 
-          <div id="menu-links">
-            <Link to="/messagefeed"> <Button className={classes.menuButton}>Message Feed</Button> </Link>
-            <Link to="/" onClick={handleLogout}>
-              <Button className={classes.menuButton}>Logout</Button>
-            </Link>
-          </div>
-        )}
+            <div id="menu-links">
+              <Link to="/messagefeed"> <Button className={classes.menuButton}>Message Feed</Button> </Link>
+              <Link to="/" onClick={handleLogout}>
+                <Button className={classes.menuButton}>Logout</Button>
+              </Link>
+            </div>
+          )}
         </Toolbar>
+        <LoginForm />
       </AppBar>
     </div>
   );

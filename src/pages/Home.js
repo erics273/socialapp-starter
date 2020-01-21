@@ -17,7 +17,6 @@ class Home extends React.Component {
         <li>Share what's new on your timeline</li>
         <br/>
         </div>
-        <LoginForm />
         <SignupForm />
       </>
     );
