@@ -30,6 +30,11 @@ class BlueService {
     //   console.log(error)
     // });
     
+    
+    getUserName(){
+        return this.client.get(this.url+"users/bijcher");
+    }
+    
 
 
 

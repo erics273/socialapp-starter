@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import Message from "./components/message/message"
-// import Profile from "./components/profile.js/Profile"
+// import Profile from "./components/profile/Profile"
 
 class App extends React.Component {
   render() {
