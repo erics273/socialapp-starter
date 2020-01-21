@@ -8,7 +8,7 @@ import SocialAppService from "../../socialAppService";
 class SignupForm extends Component {
     constructor(props) {
         super(props)
-        this.client = new SocialAppService;
+        this.client = new SocialAppService();
         this.state = {
             formData: {
                 username: "",
@@ -34,14 +34,14 @@ class SignupForm extends Component {
             <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
                 <TextField
                     required
-                    id="outlined-required"
+                    className="outlined-required"
                     name="username"
                     label="Username"
                     variant="outlined"
                 />
                 <TextField
                     required
-                    id="outlined-required"
+                    className="outlined-required"
                     name="displayName"
                     label="Display Name"
                     variant="outlined"

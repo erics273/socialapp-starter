@@ -1,29 +1,55 @@
-import React from "react";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import { Link } from "react-router-dom";
 import "./Menu.css";
 import { withAsyncAction } from "../../HOCs";
 
-class Menu extends React.Component {
-  handleLogout = event => {
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
+
+
+function Menu(props) {
+  const classes = useStyles();
+  
+  const handleLogout = event => {
     event.preventDefault();
-    this.props.logout();
+    props.logout();
   };
 
-  render() {
-    return (
-      <div id="menu">
-        <h1>Kwitter</h1>
-        {this.props.isAuthenticated && (
+  return (
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" className={classes.title}>
+            Kritter
+          </Typography>
+          {props.isAuthenticated && (
+
           <div id="menu-links">
             <Link to="/messagefeed">Message Feed</Link>
-            <Link to="/" onClick={this.handleLogout}>
+            <Link to="/" onClick={handleLogout}>
               Logout
             </Link>
           </div>
         )}
-      </div>
-    );
-  }
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
 }
 
-export default withAsyncAction("auth", "logout")(Menu);
+const connectedMenu = withAsyncAction("auth", "logout")(Menu)
+
+export default connectedMenu
