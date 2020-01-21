@@ -37,7 +37,20 @@ class BlueService {
 
 
 
-    
+    postMessage(text){
+
+        let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
+
+        var config = {
+            headers: {'Authorization': "bearer " + tempLoginInfo.result.token}
+        };
+
+        var bodyParameters = {
+        "text": text
+        }
+
+        return this.client.post(this.url + "messages", bodyParameters, config)
+    }
 
 }
 export default BlueService;
