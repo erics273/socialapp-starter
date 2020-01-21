@@ -9,9 +9,15 @@ class Registration extends Component {
     constructor(props) {
         super(props);
         // this.client = new blueService();
-        this.state = {}
+        this.state = {
+            Formdata:{
+                firstName: '',
+                lastName: ''
+            }
+            }
+        }
 
-    }
+    
 
     render() {
         return (
@@ -26,8 +32,8 @@ class Registration extends Component {
 
     }
 
-}
 
+}
 
 
 
