@@ -11,13 +11,13 @@ class Home extends React.Component {
       <>
         <Menu />
         <div className="description">
-        <br/>
-        <ul>
-        <li>Follow your interests</li>
-        <li>See what people are saying</li>
-        <li>Share what's new on your timeline</li>
-        <br/>
-        </ul>
+          <br />
+          <ul>
+            <li>Follow your interests</li>
+            <li>See what people are saying</li>
+            <li>Share what's new on your timeline</li>
+            <br />
+          </ul>
         </div>
         <SignupForm />
       </>
