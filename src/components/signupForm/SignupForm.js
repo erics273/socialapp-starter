@@ -33,6 +33,18 @@ class SignupForm extends Component {
                 password: this.state.formData.password
             })
         )
+
+        //clear fields for registration && error message
+        // this.setState(
+        //     { formData: {
+        //     username: "",
+        //     displayName: "",
+        //     password: ""
+        // }})
+    }
+
+    componentWillUnmount () {
+        
     }
 
     render() {

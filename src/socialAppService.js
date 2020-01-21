@@ -41,7 +41,7 @@ class SocialAppService {
     }
 
     getMessagesList(limit, username) {
-        return this.client.get(this.url + this.endpoint.messages)
+        return this.client.get(this.url + this.endpoint.messages + ("?limit=" + limit))
     }
 
     deleteMessage(messageId) {
