@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import Message from "./components/message/message"
+import Registration from "./components/registration/Registration"
 // import Profile from "./components/profile.js/Profile"
 
 class App extends React.Component {
@@ -30,6 +31,11 @@ class App extends React.Component {
             exact
             path="/profile"
             component={Profile}
+          />
+          <Route
+            exact
+            path="/registration"
+            component={Registration}
           />
           <Route
             exact

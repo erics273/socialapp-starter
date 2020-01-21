@@ -19,7 +19,7 @@ class Menu extends React.Component {
             {/* temp fo profile */}
             <Link to="/profile">Profile</Link>
             {/* temp for registration */}
-            {/* <Link to="/registration">Registration</Link> */}
+            <Link to="/registration">Registration</Link>
             {/* temp for message */}
             {/* <Link to="/message">message</Link> */}
 
