@@ -7,20 +7,29 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import socialAppService from '../../socialAppService';
+
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 345,
+    maxWidth: 500,
   },
   media: {
     height: 140,
   },
 });
 
-export default function MediaCard() {
+function UserInfo() {
   const classes = useStyles();
 
+  const handleSetPicture = event=> {
+    const client = new socialAppService();
+    client.setUserPicture(username,picture)
+  }
+  
+
   return (
+
     <Card className={classes.card}>
       <CardActionArea>
         <CardMedia
@@ -39,13 +48,25 @@ export default function MediaCard() {
         </CardContent>
       </CardActionArea>
       <CardActions>
+        <label htmlFor="text-button-file">
+          <Button onClick={handleSetPicture} component="span">Upload</Button>
+        </label>
+        <input
+          accept="image/*"
+          className={classes.input}
+          id="outlined-button-file"
+          multiple
+          type="file"
+        />
         <Button size="small" color="primary">
-          Share
+          Update
         </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
+        
       </CardActions>
     </Card>
+
   );
+
 }
+
+export default UserInfo;
