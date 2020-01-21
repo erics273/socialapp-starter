@@ -29,6 +29,10 @@ class BlueService {
     // }).catch((error) => {
     //   console.log(error)
     // });
+
+    getMessage(){
+        return this.client.get(this.url + 'messages/15');
+    }
     
     
     getUserName(){
