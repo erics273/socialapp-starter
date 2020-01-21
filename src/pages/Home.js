@@ -2,6 +2,13 @@ import React from "react";
 import Menu from "../components/menu/Menu";
 import { userIsNotAuthenticated } from "../HOCs";
 import SignupForm from "../components/signupForm/SignupForm";
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ChatIcon from '@material-ui/icons/Chat';
+import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
 
 
 class Home extends React.Component {
@@ -9,7 +16,32 @@ class Home extends React.Component {
     return (
       <>
         <Menu />
-        <div className="description">
+        <br/>
+        <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <FavoriteIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="Follow your interests"/>
+      </ListItem>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <ChatIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="See what people are saying"/>
+      </ListItem>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <FormatQuoteIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="Share what's new on your timeline"/>
+      </ListItem>
+        {/* <div className="description">
           <br />
           <ul>
             <li>Follow your interests</li>
@@ -17,7 +49,7 @@ class Home extends React.Component {
             <li>Share what's new on your timeline</li>
             <br />
           </ul>
-        </div>
+        </div> */}
         <SignupForm />
       </>
     );
