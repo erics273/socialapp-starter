@@ -4,8 +4,9 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
-import Message from "./components/message/message"
-import Registration from "./components/registration/Registration"
+import Message from "./components/message/message";
+import Registration from "./components/registration/Registration";
+import MessageForm from "./components/messageForm/MessageForm";
 // import Profile from "./components/profile.js/Profile"
 
 class App extends React.Component {
@@ -36,6 +37,11 @@ class App extends React.Component {
             exact
             path="/registration"
             component={Registration}
+          />
+          <Route
+            exact
+            path="/messageform"
+            component={MessageForm}
           />
           <Route
             exact
