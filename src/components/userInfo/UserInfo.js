@@ -34,15 +34,15 @@ export default function SimpleCard() {
           User
        </Typography>
         <Typography variant="h5" component="h2">
-          be{bull}nev{bull}o{bull}lent
+          First name Last name
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          adjective
+          Age
         </Typography>
         <Typography variant="body2" component="p">
-          well meaning and kindly.
+          About
           <br />
-          {'"a benevolent smile"'}
+          {'"a creative person"'}
         </Typography>
       </CardContent>
       <CardActions>
