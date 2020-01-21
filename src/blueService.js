@@ -34,6 +34,12 @@ class BlueService {
         return this.client.get(this.url + 'messages/15');
     }
     
+    
+    
+    getUserName(){
+        return this.client.get(this.url+"users/bijcher");
+    }
+    
 
 
 
