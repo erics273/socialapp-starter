@@ -10,7 +10,9 @@ class SocialAppService {
             likes: "likes/"
         }
         this.client = client;
+        this.token = JSON.parse(localStorage.getItem("login"))
     }
+
 
     /*User functions*/
     createNewUser(credentials) {
@@ -18,7 +20,11 @@ class SocialAppService {
     }
 
     deleteUser(username) {
-        return this.client.delete(this.url + this.endpoint.users + username)
+        return this.client.delete(this.url + this.endpoint.users + username, {
+            headers: {
+                Authorization: "Bearer " + this.token.result.token
+            }
+        })
     }
 
     updateUser(username, credentials) {
