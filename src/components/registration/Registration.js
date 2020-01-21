@@ -34,7 +34,7 @@ class Registration extends Component {
             .then((response) => {
                 console.log(response)
 
-                this.postNewUser();
+               
 
                 this.setState({
                     messageError: "",
