@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import { Link } from "react-router-dom";
 import "./Menu.css";
 import { withAsyncAction } from "../../HOCs";
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,6 +14,7 @@ const useStyles = makeStyles(theme => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    color: "white"
   },
   title: {
     flexGrow: 1,
@@ -38,9 +40,9 @@ function Menu(props) {
           {props.isAuthenticated && (
 
           <div id="menu-links">
-            <Link to="/messagefeed">Message Feed</Link>
+            <Link to="/messagefeed"> <Button className={classes.menuButton}>Message Feed</Button> </Link>
             <Link to="/" onClick={handleLogout}>
-              Logout
+              <Button className={classes.menuButton}>Logout</Button>
             </Link>
           </div>
         )}
