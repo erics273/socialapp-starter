@@ -2,11 +2,11 @@
 import axios from 'axios';
 
 class BlueService {
-    
+
     constructor(
         url = 'https://socialapp-api.herokuapp.com/',
         client = axios.create()
-    ){
+    ) {
         this.url = url;
         this.client = client;
         this.config = {}
@@ -30,33 +30,45 @@ class BlueService {
     //   console.log(error)
     // });
 
-    getMessage(){
+    getMessage() {
         return this.client.get(this.url + 'messages/15');
     }
-    
-    
-    
-    getUserName(){
-        return this.client.get(this.url+"users/bijcher");
+
+
+
+    getUserName() {
+        return this.client.get(this.url + "users/bijcher");
     }
-    
 
 
 
-    postMessage(text){
+
+    postMessage(text) {
 
         let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
 
         var config = {
-            headers: {'Authorization': "bearer " + tempLoginInfo.result.token}
+            headers: { 'Authorization': "bearer " + tempLoginInfo.result.token }
         };
 
         var bodyParameters = {
-        "text": text
+            "text": text
         }
 
         return this.client.post(this.url + "messages", bodyParameters, config)
     }
+
+
+    postNewUser(username,displayName,password) {
+        var bodyParameters = {
+            "username": username,
+            "displayName": displayName,
+            "password": password
+        }
+        return this.client.post(this.url + "users", bodyParameters)
+    }
+
+
 
 }
 export default BlueService;
