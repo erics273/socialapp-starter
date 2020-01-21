@@ -18,11 +18,17 @@ class Profile extends React.Component {
 
   getProfile() {
     return this.client.getUserName().then(result => {
-      console.log(result)
+      //console.log(result)
+      // console.log(result.data)
+      // console.log(result.data.user)
+       console.log(result.data.user.username)
+       console.log(result.data.user.displayName)
+       console.log(result.data.user.about)
+      
 
-      //this.setState({
-      //   data: result.data[0]
-      //  })
+      this.setState({
+         data: result.data.user
+        })
 
     })
   }
@@ -34,12 +40,13 @@ class Profile extends React.Component {
 
   render() {
     return (
+      
       <>
         <Menu isAuthenticated={this.props.isAuthenticated} />
         <div>
-          <div>username:{}</div>
-          <div>displayName:{}</div>
-          <div>about:{}</div>
+          <div>username:{this.state.data.username}</div>
+          <div>displayName:{this.state.data.displayName}</div>
+          <div>about:{this.state.data.about}</div>
         </div>
         <h2>Profile</h2>
       </>
