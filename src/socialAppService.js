@@ -53,15 +53,19 @@ class SocialAppService {
     getMessagesList(limit, username) {
         return this.client.get(this.url + this.endpoint.messages + ("?limit=" + limit))
     }
-
+    
+    getMessage(messageId) {
+        return this.client.get(this.url + this.endpoint.messages + messageId)
+    }
+    
     deleteMessage(messageId) {
-        return this.client.delete(this.url + this.endpoint.messages, messageId)
+        return this.client.delete(this.url + this.endpoint.messages + messageId)
     }
 
 
     /*Like functions*/
     addLike(messageId) {
-        return this.client.post(this.url + this.endpoint.likes, {messageId:messageId}, {
+        return this.client.post(this.url + this.endpoint.likes, { messageId: messageId }, {
             headers: {
                 Authorization: "Bearer " + this.token.result.token
             }
@@ -69,7 +73,11 @@ class SocialAppService {
     }
 
     deleteLike(likeId) {
-        return this.client.delete(this.url + this.endpoint.likes, likeId)
+        return this.client.delete(this.url + this.endpoint.likes + likeId, {
+            headers: {
+                Authorization: "Bearer " + this.token.result.token
+            }
+        })
     }
 }
 
