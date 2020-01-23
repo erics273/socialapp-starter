@@ -33,6 +33,25 @@ class Profile extends React.Component {
     })
   }
 
+  deleteUser=() => {
+    let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
+    console.log(tempLoginInfo.result.username)
+    return this.client.deleteUser(tempLoginInfo.result.username)
+      .then((response) => {
+        console.log(response)
+
+
+
+      }).catch((error) => {
+        console.log(error)
+      });
+
+
+   
+     
+
+   
+  }
 
   componentDidMount() {
     this.getProfile();
@@ -51,7 +70,9 @@ class Profile extends React.Component {
           about={this.state.data.about}
         />
         <h2>Profile</h2>
+        <button onClick={this.deleteUser}>Delete User</button>
       </>
+
     );
   }
 
