@@ -1,6 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-// import { userIsNotAuthenticated } from "../../HOCs";
+import DisplayMessage from '../displayMessage/displayMessage'
 import BlueService from '../../blueService';
 
 class Message extends React.Component {
@@ -28,38 +27,19 @@ class Message extends React.Component {
     render() {
         if (this.state.data.message) {
             return (
-                <div>
                     <div>
-                        message: {this.state.data.message.text}
+                        <DisplayMessage
+                            message = {this.state.data.message.text}
+                            username = {this.state.data.message.username}
+                            data ={this.state.data.message.createdAt}
+                        />
                     </div>
-                    <div>
-                        username: {this.state.data.message.username}
-                    </div>
-                    <div>
-                        date: {this.state.data.message.createdAt}
-                    </div>
-                </div>
             )} 
         else {
             return (
                 <div>
-                    
                 </div>
             )}
-
-        // return (
-        //     <div>
-        //         <div>
-        //             Name: {}
-        //         </div>
-        //         <div>
-        //             content: {}
-        //         </div>
-        //         <div>
-        //             date: {}
-        //         </div>
-        //     </div>
-        // );
     }
 
 }
