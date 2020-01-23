@@ -27,8 +27,8 @@ class SocialAppService {
         })
     }
 
-    updateUser(username, credentials) {
-        return this.client.push(this.url + this.endpoint.users + username, credentials)
+    updateUser(username, data) {
+        return this.client.patch(this.url + this.endpoint.users + username, data)
     }
 
     //PICTURE DATA SIZE IS RESTRICTED TO <= 200kb
@@ -36,9 +36,13 @@ class SocialAppService {
         return this.client.put(this.url + this.endpoint.users + username, picture)
     }
 
-    getUsersList(limit) {
-        return this.client.get(this.url + this.endpoint.users)
+    getUser(username) {
+        return this.client.get(this.url + this.endpoint.users + username)
     }
+
+    // getUsersList(limit) {
+    //     return this.client.get(this.url + this.endpoint.users)
+    // }
 
 
     /*Message functions */

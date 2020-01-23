@@ -43,10 +43,6 @@ class SignupForm extends Component {
         // }})
     }
 
-    componentWillUnmount () {
-        
-    }
-
     render() {
         return (
             <form className='signup' onChange={this.handleChange} onSubmit={this.handleSubmit}>
