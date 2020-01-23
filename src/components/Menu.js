@@ -24,6 +24,7 @@ class Menu extends React.Component {
             {/* <Link to="/message">message</Link> */}
             {/* temp for messageForm */}
             <Link to="/messageform">Message Form</Link>
+            <Link to="/messagepage/1">MessagePage</Link>
 
             <Link to="/" onClick={this.handleLogout}>
               Logout
