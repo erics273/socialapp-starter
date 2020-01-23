@@ -35,6 +35,7 @@ class MessageFeed extends Component {
         })
     }
 
+
     componentDidMount() {
         this.getMessageList()
     }
@@ -49,6 +50,8 @@ class MessageFeed extends Component {
                         username={message.username}
                         text={message.text}
                         likes={message.likes}
+                        client={this.client} 
+                        id ={ message.id}
                     />
                     <Divider variant="inset" component="li" />
                 </React.Fragment>)
