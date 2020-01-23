@@ -29,6 +29,14 @@ class Message extends React.Component {
         })
     }
 
+    postLikes() {
+        return this.client.postLikes().then(result => {
+            console.log(result.data.likes)
+            this.setState({
+                data: result.data
+            })
+        })
+    }
 
     componentDidMount() {
         this.getMultipleMessages();

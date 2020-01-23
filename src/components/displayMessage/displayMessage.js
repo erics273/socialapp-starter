@@ -6,8 +6,10 @@ function DisplayMessage(props) {
       <div>message:{props.message}</div>
       <div>username:{props.username}</div>
       <div>data:{props.data}</div>
-      <div>likes:{props.likes}</div>
+      <div><button>Likes:{props.likes}</button></div>
     </div>
   );
 }
+
+
 export default DisplayMessage;
