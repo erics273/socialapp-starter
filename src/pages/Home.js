@@ -9,14 +9,17 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
+import "./Home.css"
 
 
 class Home extends React.Component {
   render() {
     return (
       <>
-        <Menu />
-        <br/>
+
+        <Menu /> 
+        
+        <div className="description">
         <ListItem>
         <ListItemAvatar>
           <Avatar>
@@ -41,6 +44,7 @@ class Home extends React.Component {
         </ListItemAvatar>
         <ListItemText primary="Share what's new on your timeline"/>
       </ListItem>
+      </div>
         {/* <div className="description">
           <br />
           <ul>
