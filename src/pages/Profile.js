@@ -3,6 +3,7 @@ import Menu from "../components/menu/Menu";
 import { userIsAuthenticated } from "../HOCs";
 import UserInfo from "../components/userInfo/UserInfo";
 import MessageFeed from "../components/messageFeed/MessageFeed";
+import SuggestedUsers from "../components/suggestedUsers/SuggestedUsers"
 
 
 
@@ -15,7 +16,7 @@ class Profile extends React.Component {
         <UserInfo username={this.props.match.params.username}/>
         <br />
         <MessageFeed/>
-        {/* <SuggestedUsers /> */}
+        <SuggestedUsers/>
       </>
     );
   }

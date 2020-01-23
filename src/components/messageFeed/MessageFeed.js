@@ -43,29 +43,6 @@ class MessageFeed extends Component {
         this.getMessageList()
     }
 
-<<<<<<< HEAD
-    let messages = this.state.messageData.map(message => {
-      return (
-        <div className="messages">
-        <React.Fragment key={message.id}>
-          <Message
-            username={message.username}
-            text={message.text}
-            likes={message.likes}
-          />
-          <Divider variant="inset" component="li" />
-        </React.Fragment>
-        </div>
-      );
-    });
-    return (
-      <div className="comments">
-        <h1>Comments</h1>
-        <List className={classes.root}>{messages}</List>
-      </div>
-    );
-  }
-=======
     render() {
         const { classes } = this.props;
         
@@ -90,7 +67,6 @@ class MessageFeed extends Component {
             </div>
         )
     }
->>>>>>> master
 }
 
 export default withStyles(styles)(MessageFeed);
