@@ -1,8 +1,8 @@
 import React from "react";
-import Menu from "../components/Menu";
+import Menu from "../components/menu/Menu";
 import { userIsAuthenticated } from "../HOCs";
 import BlueService from "../blueService"
-
+import ProfileDisplay from "../components/profileDisplay/ProfileDisplay"
 
 class Profile extends React.Component {
 
@@ -21,14 +21,14 @@ class Profile extends React.Component {
       //console.log(result)
       // console.log(result.data)
       // console.log(result.data.user)
-       console.log(result.data.user.username)
-       console.log(result.data.user.displayName)
-       console.log(result.data.user.about)
-      
+      console.log(result.data.user.username)
+      console.log(result.data.user.displayName)
+      console.log(result.data.user.about)
+
 
       this.setState({
-         data: result.data.user
-        })
+        data: result.data.user
+      })
 
     })
   }
@@ -40,14 +40,14 @@ class Profile extends React.Component {
 
   render() {
     return (
-      
+
       <>
         <Menu isAuthenticated={this.props.isAuthenticated} />
-        <div>
-          <div>username:{this.state.data.username}</div>
-          <div>displayName:{this.state.data.displayName}</div>
-          <div>about:{this.state.data.about}</div>
-        </div>
+        <ProfileDisplay
+          username={this.state.data.username}
+          displayName={this.state.data.displayName}
+          about={this.state.data.about}
+        />
         <h2>Profile</h2>
         <button onClick={this.state.data.user}>Delete User</button>
       </>  
