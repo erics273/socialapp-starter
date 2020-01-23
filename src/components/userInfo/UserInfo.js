@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { withAsyncAction } from "../../HOCs";
-
+import "./UserInfo.css";
 import SocialAppService from "../../socialAppService";
-
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -56,17 +55,23 @@ class UserInfo extends Component {
       <Card className={classes.card}>
         <CardContent>
           <Typography className={classes.title} color="textSecondary" gutterBottom>
+            <div className="user">
             User
+            </div>
        </Typography>
           <Typography variant="h5" component="h2">
+            <div className="names">
             First name Last name
+            </div>
         </Typography>
           <Typography className={classes.pos} color="textSecondary">
             Age
         </Typography>
           <Typography variant="body2" component="p">
+            <div className="about">
             About
           <br />
+          </div>
             {'"a creative person"'}
           </Typography>
         </CardContent>
