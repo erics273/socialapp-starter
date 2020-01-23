@@ -1,7 +1,8 @@
 import React from "react";
 import Menu from "../components/menu/Menu";
 import { userIsAuthenticated } from "../HOCs";
-import BlueService from "../blueService"
+import BlueService from "../blueService";
+import DisplayMessage from "../components/displayMessage/displayMessage";
 
 
 class MessagePage extends React.Component {
