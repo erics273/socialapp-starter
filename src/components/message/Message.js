@@ -25,10 +25,30 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Message(props) {
+  let liked = false;
+
   const classes = useStyles();
 
-  const handleAddLike = event => {
-    return props.client.addLike(props.id)
+  const handleLike = event => {
+    let messageData = props.client.getMessage(props.id)
+    let likeId = ""
+    for (let like of props.likes)
+    {
+      if (like.username == "abc") {
+        liked = true
+        likeId = like.id
+        console.log(likeId)
+      }
+    }
+
+      if (!liked) {
+        liked = true;
+        return props.client.addLike(props.id)
+      }
+      else {
+        liked = false
+        return props.client.deleteLike(likeId)
+      }
   }
 
   return (
@@ -51,7 +71,7 @@ export default function Message(props) {
               >
                 {props.text}
                 <br />
-                <Button onClick={handleAddLike}>
+                <Button onClick={handleLike}>
                   <ThumbUpIcon /><span>{props.likes.length} Like</span>
                 </Button>
               </Typography>

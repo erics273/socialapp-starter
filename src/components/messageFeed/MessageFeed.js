@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Message from "../message/Message";
 import SocialAppService from "../../socialAppService";
+import "./MessageFeed.css"
 
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
