@@ -1,9 +1,12 @@
 import React from "react";
-import BlueService from '../../blueService';
 
 function DisplayMessage (props) {
     return (
-        <div>!</div>
+        <div>
+        <div>message:{props.message}</div>
+        <div>username:{props.usermane}</div>
+        <div>data:{props.data}</div>
+      </div>
     );
 }
 export default DisplayMessage;

@@ -27,20 +27,13 @@ class Message extends React.Component {
     render() {
         if (this.state.data.message) {
             return (
-                <div>
                     <div>
-                        <DisplayMessage/>
+                        <DisplayMessage
+                            message = {this.state.data.message.text}
+                            username = {this.state.data.message.username}
+                            data ={this.state.data.message.createdAt}
+                        />
                     </div>
-                    <div>
-                        message: {this.state.data.message.text}
-                    </div>
-                    <div>
-                        username: {this.state.data.message.username}
-                    </div>
-                    <div>
-                        date: {this.state.data.message.createdAt}
-                    </div>
-                </div>
             )} 
         else {
             return (
