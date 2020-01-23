@@ -50,6 +50,9 @@ class SignupForm extends Component {
     render() {
         return (
             <form className='signup' onChange={this.handleChange} onSubmit={this.handleSubmit}>
+                <div className="h1Element">
+                    <h1>Sign up</h1>
+                    </div>
                 <TextField
                     required
                     className="outlined-required"
@@ -73,9 +76,11 @@ class SignupForm extends Component {
                     autoComplete="current-password"
                     variant="outlined"
                 />
-                <button type="submit">
-                    Submit
+                <div className="submitButton">
+                <button className="submitButton" type="submit">
+                    Sign Up
                 </button>
+                </div> 
             </form>
         )
     }
