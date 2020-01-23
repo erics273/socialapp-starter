@@ -7,7 +7,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import "./Message.css";
+
+import { Button } from '@material-ui/core';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import "./Message.css"
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,10 +25,14 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Message(props) {
-  const classes = useStyles(); 
+  const classes = useStyles();
+
+  const handleAddLike = event => {
+    return props.client.addLike(props.id)
+  }
 
   return (
-      
+
     <div>
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
@@ -42,6 +50,10 @@ export default function Message(props) {
                 color="textPrimary"
               >
                 {props.text}
+                <br />
+                <Button onClick={handleAddLike}>
+                  <ThumbUpIcon /><span>{props.likes.length} Like</span>
+                </Button>
               </Typography>
             </React.Fragment>
           }
