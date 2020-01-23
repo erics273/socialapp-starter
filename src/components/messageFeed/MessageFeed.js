@@ -38,28 +38,34 @@ class MessageFeed extends Component {
     this.getMessageList();
   }
 
-  render() {
-    const { classes } = this.props;
+    componentDidMount() {
+        this.getMessageList()
+    }
 
-    let messages = this.state.messageData.map(message => {
-      return (
-        <React.Fragment key={message.id}>
-          <Message
-            username={message.username}
-            text={message.text}
-            likes={message.likes}
-          />
-          <Divider variant="inset" component="li" />
-        </React.Fragment>
-      );
-    });
-    return (
-      <div className="comments">
-        <h1>Comments</h1>
-        <List className={classes.root}>{messages}</List>
-      </div>
-    );
-  }
+    render() {
+        const { classes } = this.props;
+        
+        let messages = this.state.messageData.map((message) => {
+            return (
+                <React.Fragment key={message.id}>
+                    <Message
+                        username={message.username}
+                        text={message.text}
+                        likes={message.likes}
+                        client={this.client} 
+                        id ={ message.id}
+                    />
+                    <Divider variant="inset" component="li" />
+                </React.Fragment>)
+        })
+        return (
+            <div>
+                <List className={classes.root}>
+                    {messages}
+                </List>
+            </div>
+        )
+    }
 }
 
 export default withStyles(styles)(MessageFeed);

@@ -57,7 +57,11 @@ class SocialAppService {
 
     /*Like functions*/
     addLike(messageId) {
-        return this.client.post(this.url + this.endpoint.likes, messageId)
+        return this.client.post(this.url + this.endpoint.likes, {messageId:messageId}, {
+            headers: {
+                Authorization: "Bearer " + this.token.result.token
+            }
+        })
     }
 
     deleteLike(likeId) {
