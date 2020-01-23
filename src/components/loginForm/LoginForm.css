@@ -3,11 +3,6 @@
   flex-direction: row;
   max-width: 50em;
 }
-
-input {
-color: white !important;
-border-color: white !important;
-}
   
 .MuiOutlinedInput-notchedOutline {
   border-color: white !important;

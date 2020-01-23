@@ -46,7 +46,6 @@ function Menu(props) {
               <Link to="/" onClick={handleLogout}>
                 <Button className={classes.menuButton}>Logout</Button>
               </Link>
-              
             </div>
           )}
           {!props.isAuthenticated && (
