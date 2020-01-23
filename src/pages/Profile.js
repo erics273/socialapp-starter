@@ -15,6 +15,7 @@ class Profile extends React.Component {
         <UserInfo username={this.props.match.params.username}/>
         <br />
         <MessageFeed/>
+        {/* <SuggestedUsers /> */}
       </>
     );
   }
