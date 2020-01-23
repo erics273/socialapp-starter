@@ -44,6 +44,7 @@ class Message extends React.Component {
                             message={message.text}
                             username={message.username}
                             data={message.createdAt}
+                            likes={message.likes.length}
                         />
                     })}
                 </div>
