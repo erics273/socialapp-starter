@@ -5,6 +5,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { withAsyncAction } from "../../HOCs";
+
 
 import SocialAppService from "../../socialAppService";
 
@@ -27,10 +29,12 @@ const useStyles = makeStyles({
 
 
 
-export default function SimpleCard(props) {
+function UserInfo(props) {
+
   const handleDelete = event => {
     const client = new SocialAppService()
     client.deleteUser(props.username)
+    props.logout()
   }
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
@@ -54,7 +58,7 @@ export default function SimpleCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-         <Button size="small">Add Image</Button>
+        <Button size="small">Add Image</Button>
         <Button size="small">Update</Button>
         <Button onClick={handleDelete} size="small">Delete</Button>
 
@@ -63,3 +67,7 @@ export default function SimpleCard(props) {
     </Card>
   );
 }
+
+const connectedUser = withAsyncAction("auth", "logout")(UserInfo)
+
+export default connectedUser
