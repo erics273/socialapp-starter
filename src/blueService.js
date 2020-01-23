@@ -68,7 +68,18 @@ class BlueService {
         return this.client.post(this.url + "users", bodyParameters)
     }
 
-
+    deleteUser(username){
+        let tempLoginInfo = JSON.parse(localStorage.getItem("user"));
+    
+        var config = {
+            headers: { 'Authorization': "bearer " + tempLoginInfo.result.token }
+        }
+    
+         var bodyParameters = {
+            "username": username
+         }
+         return this.client.post(this.url + "user", bodyParameters, config)
+     }
 
 }
 export default BlueService;

@@ -49,7 +49,9 @@ class Profile extends React.Component {
           <div>about:{this.state.data.about}</div>
         </div>
         <h2>Profile</h2>
-      </>
+        <button onClick={this.state.data.user}>Delete User</button>
+      </>  
+
     );
   }
 
