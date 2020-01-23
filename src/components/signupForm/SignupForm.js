@@ -52,6 +52,7 @@ class SignupForm extends Component {
             <form className='signup' onChange={this.handleChange} onSubmit={this.handleSubmit}>
                 <div className="h1Element">
                     <h1>Sign up</h1>
+                    <br/>
                     </div>
                 <TextField
                     required
@@ -76,6 +77,7 @@ class SignupForm extends Component {
                     autoComplete="current-password"
                     variant="outlined"
                 />
+                <br/>
                 <div className="submitButton">
                 <button className="submitButton" type="submit">
                     Sign Up

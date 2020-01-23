@@ -26,7 +26,7 @@ class Home extends React.Component {
             <FavoriteIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText className="row1" primary="Follow your interests"/>
+        <ListItemText primary="Follow your interests"/>
       </ListItem>
       <ListItem>
         <ListItemAvatar>
