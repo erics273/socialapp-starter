@@ -85,7 +85,9 @@ class UserInfo extends Component {
           <Typography className={classes.title} color="textSecondary" gutterBottom>
             <div className="user">
             User
-</div>
+
+            </div>
+
           </Typography>
           <Typography variant="h5" component="h2">
             {this.state.updateUser && (
@@ -106,7 +108,9 @@ class UserInfo extends Component {
           <br />
 
             {this.state.userData.about}
-</div>
+
+              </div>
+
           </Typography>
         </CardContent>
         <CardActions>
