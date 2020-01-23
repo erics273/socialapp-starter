@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Message from "../message/Message";
 import SocialAppService from "../../socialAppService";
+import "./MessageFeed.css"
 
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
@@ -43,6 +44,7 @@ class MessageFeed extends Component {
 
     let messages = this.state.messageData.map(message => {
       return (
+        <div className="messages">
         <React.Fragment key={message.id}>
           <Message
             username={message.username}
@@ -51,6 +53,7 @@ class MessageFeed extends Component {
           />
           <Divider variant="inset" component="li" />
         </React.Fragment>
+        </div>
       );
     });
     return (
