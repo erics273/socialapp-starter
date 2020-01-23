@@ -5,6 +5,7 @@ import UserInfo from "../components/userInfo/UserInfo";
 import MessageFeed from "../components/messageFeed/MessageFeed";
 
 
+
 class Profile extends React.Component {
   render() {
     return (

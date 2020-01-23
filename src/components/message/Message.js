@@ -7,9 +7,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
+
 import { Button } from '@material-ui/core';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import "./Message.css"
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,6 +38,7 @@ export default function Message(props) {
         <ListItemAvatar>
           <Avatar alt={props.username} src="/static/images/avatar/2.jpg" />
         </ListItemAvatar>
+        <div>
         <ListItemText
           primary={props.username}
           secondary={
@@ -55,7 +58,9 @@ export default function Message(props) {
             </React.Fragment>
           }
         />
+        </div>
       </ListItem>
+      
       <Divider variant="inset" component="li" />
     </div>
   );
