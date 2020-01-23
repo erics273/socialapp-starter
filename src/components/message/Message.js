@@ -8,6 +8,11 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 
+import { Button } from '@material-ui/core';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import "./Message.css"
+
+
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -20,15 +25,20 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Message(props) {
-  const classes = useStyles(); 
+  const classes = useStyles();
+
+  const handleAddLike = event => {
+    return props.client.addLike(props.id)
+  }
 
   return (
-   
+
     <div>
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar alt={props.username} src="/static/images/avatar/2.jpg" />
         </ListItemAvatar>
+        <div>
         <ListItemText
           primary={props.username}
           secondary={
@@ -40,11 +50,17 @@ export default function Message(props) {
                 color="textPrimary"
               >
                 {props.text}
+                <br />
+                <Button onClick={handleAddLike}>
+                  <ThumbUpIcon /><span>{props.likes.length} Like</span>
+                </Button>
               </Typography>
             </React.Fragment>
           }
         />
+        </div>
       </ListItem>
+      
       <Divider variant="inset" component="li" />
     </div>
   );
