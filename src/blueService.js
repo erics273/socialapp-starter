@@ -50,6 +50,7 @@ class BlueService {
     postMessage(text) {
 
         let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
+        console.log(tempLoginInfo);
 
         var config = {
             headers: { 'Authorization': "bearer " + tempLoginInfo.result.token }

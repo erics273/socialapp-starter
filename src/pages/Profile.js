@@ -39,6 +39,8 @@ class Profile extends React.Component {
   }
 
   render() {
+    let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
+        console.log(tempLoginInfo);
     return (
 
       <>
