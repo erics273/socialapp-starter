@@ -44,8 +44,9 @@ class BlueService {
         return this.client.get(this.url + "users/bijcher");
     }
 
-
-
+    getMultipleMessages() {
+        return this.client.get(this.url + "messages");
+    }
 
     postMessage(text) {
 
@@ -63,7 +64,7 @@ class BlueService {
     }
 
 
-    postNewUser(username,displayName,password) {
+    postNewUser(username, displayName, password) {
         var bodyParameters = {
             "username": username,
             "displayName": displayName,
