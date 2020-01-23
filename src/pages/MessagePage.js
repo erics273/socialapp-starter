@@ -1,5 +1,5 @@
 import React from "react";
-import Menu from "../components/Menu";
+import Menu from "../components/menu/Menu";
 import { userIsAuthenticated } from "../HOCs";
 import BlueService from "../blueService"
 
@@ -19,7 +19,7 @@ class MessagePage extends React.Component {
     // should be like this.props.messageID
     // want to pass via link
     getParticularMessage(messageID) {
-        return this.client.gitMessageSpecific().then(result => {
+        return this.client.gitMessageSpecific(messageID).then(result => {
             console.log(result.data)
               this.setState({
             data: result.data
@@ -27,10 +27,13 @@ class MessagePage extends React.Component {
         })
     }
 
-    
+    componentDidMount() {
+        console.log(this.props.match.params.messageID)
+        // this.getParticularMessage();
+    }
 
     render(){
-        console.log(this.props.match.params.messageID);
+        // console.log(this.props.match.params.messageID);
         return(
             <>
                 <Menu isAuthenticated={this.props.isAuthenticated} />
