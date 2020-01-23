@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound";
 import Message from "./components/message/message";
 import Registration from "./components/registration/Registration";
 import MessageForm from "./components/messageForm/MessageForm";
+import MessagePage from "./pages/MessagePage";
 // import Profile from "./components/profile.js/Profile"
 
 class App extends React.Component {
@@ -42,6 +43,11 @@ class App extends React.Component {
             exact
             path="/messageform"
             component={MessageForm}
+          />
+          <Route
+            exact
+            path="/messagepage/:messageID"
+            component={MessagePage}
           />
           <Route
             exact
