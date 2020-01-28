@@ -38,6 +38,9 @@ class BlueService {
         return this.client.get(this.url + 'messages/' + messageID);
     }
 
+    getUsers(){
+        return this.client.get(this.url + "users");
+    }
 
 
     getUserName() {
@@ -128,6 +131,8 @@ class BlueService {
         }
         return this.client.patch(this.url + "users/" + tempLoginInfo.result.username, bodyParameters, config)
     }
+
+    
 
 }
 export default BlueService;
