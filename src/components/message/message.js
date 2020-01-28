@@ -41,6 +41,10 @@ class Message extends React.Component {
 
             let messageArray = [];
             for(let i = 0; i < this.state.dataMessages.messages.length; i++){
+                // for(let j = 0; j < this.state.dataMessages.likes.length; j++){
+
+                // }
+                console.log(this.state.dataMessages.messages[i].likes.length)
                 messageArray.push(
                     <DisplayMessage
                             key={this.state.dataMessages.messages[i].id}
