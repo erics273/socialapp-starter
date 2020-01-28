@@ -17,7 +17,10 @@ function DisplayMessage(props) {
           </Card.Text>
         </Card.Body>
         <Card.Footer>
-          {props.data}
+          {props.date}
+          likes
+          {props.likes}
+        
         </Card.Footer>
       </Card>
       {/* <br /> */}
