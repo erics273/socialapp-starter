@@ -1,94 +1,57 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import Divider from '@material-ui/core/Divider';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
-import Typography from '@material-ui/core/Typography';
+import React, { Component } from "react";
+import Message from "../message/Message";
+import SocialAppService from "../../socialAppService";
+import "./MessageFeed.css";
 
-const useStyles = makeStyles(theme => ({
+import List from "@material-ui/core/List";
+import Divider from "@material-ui/core/Divider";
+import { withStyles } from "@material-ui/core/styles";
+
+const styles = theme => ({
   root: {
-    width: '100%',
+    width: "100%",
     maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.paper
   },
   inline: {
-    display: 'inline',
-  },
-}));
+    display: "inline"
+  }
+});
 
-export default function AlignItemsList() {
-  const classes = useStyles();
+class MessageFeed extends Component {
 
-  return (
-    <List className={classes.root}>
-      <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-        </ListItemAvatar>
-        <ListItemText
-          primary="Brunch this weekend?"
-          secondary={
-            <React.Fragment>
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-                Ali Connors
-              </Typography>
-              {" — I'll be in your neighborhood doing errands this…"}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-      <Divider variant="inset" component="li" />
-      <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-        </ListItemAvatar>
-        <ListItemText
-          primary="Summer BBQ"
-          secondary={
-            <React.Fragment>
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-                to Scott, Alex, Jennifer
-              </Typography>
-              {" — Wish I could come, but I'm out of town this…"}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-      <Divider variant="inset" component="li" />
-      <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
-        </ListItemAvatar>
-        <ListItemText
-          primary="Oui Oui"
-          secondary={
-            <React.Fragment>
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-                Sandra Adams
-              </Typography>
-              {' — Do you have Paris recommendations? Have you ever…'}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
-    </List>
-  );
+  constructor(props) {
+    super(props);
+    this.client = new SocialAppService();
+  }
+  
+  render() {
+    const { classes } = this.props;
+
+    let messages = this.props.messages.map(message => {
+      return (
+        <React.Fragment key={message.id}>
+          <Message
+            username={message.username}
+            text={message.text}
+            likes={message.likes}
+            client={this.client}
+            id={message.id}
+            getMessageHandler={this.props.getMessageHandler}
+          />
+          <Divider variant="inset" component="li" />
+        </React.Fragment>
+      );
+    });
+
+    return (
+      <div>
+        <h1>Comments</h1>
+        <List className={classes.root}>{messages}</List>
+      </div>
+    );
+  }
+
 }
+
+export default withStyles(styles)(MessageFeed);

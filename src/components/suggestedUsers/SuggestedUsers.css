@@ -1,0 +1,12 @@
+.card2 {
+    position: absolute;
+    display: flex;
+    left: 850px;
+    top: 338px;
+    
+}
+
+h2 {
+    display: flex;
+    font-weight: bold;    
+}

@@ -1,5 +1,8 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import { withAsyncAction } from "../../HOCs";
+import "./UserInfo.css";
+import SocialAppService from "../../socialAppService";
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -7,7 +10,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import SocialAppService from "../../socialAppService";
+import DeleteIcon from '@material-ui/icons/Delete';
+import TextField from '@material-ui/core/TextField';
+
 
 const styles = {
   card: {
@@ -18,8 +23,6 @@ const styles = {
   },
 };
 
-
-
 class UserInfo extends React.Component {
   constructor(props) {
     super(props)
@@ -28,10 +31,21 @@ class UserInfo extends React.Component {
       formData: {
         picture: ""
       },
-      userPicture: {config:""}
+      userPicture: {config:""},
+      updateUser: false,
+      userData: {
+        password: "",
+        about: "",
+        displayName: ""
+      }
     }
   }
 
+  handleDelete = event => {
+    this.client.deleteUser(this.props.username)
+    this.props.logout()
+  }
+  
   getCurrentUserPicture(){
     this.client.getUserPicture(this.props.username).then((response)=>
       this.setState({userPicture:response})
@@ -56,6 +70,30 @@ class UserInfo extends React.Component {
     formData.append('picture',file)
     return formData
   }
+  getUserData() {
+    return this.client.getUser(this.props.username).then(result => {
+      const capsDisplayName = result.data.user.displayName.toUpperCase()
+      this.setState({
+        userData: {
+          password: "result.data.user.",
+          about: result.data.user.about,
+          displayName: capsDisplayName
+        }
+      })
+    })
+  }
+
+  handleUpdate = () => {
+
+    this.setState({
+      updateUser: !this.state.updateUser
+    })
+    this.getUserData()
+  }
+
+  componentDidMount() {
+    this.getUserData()
+  }
 
   render() {
     const { classes } = this.props;
@@ -71,7 +109,16 @@ class UserInfo extends React.Component {
           <img src={this.state.userPicture.config.url}></img>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              Lizard
+              {this.state.updateUser && (
+              <TextField
+                displayName="outlined-helperText"
+                label="Display Name"
+                defaultValue={this.state.userData.displayName}
+                variant="filled"
+              />
+            )}
+
+            {!this.state.updateUser && this.state.userData.displayName}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
@@ -94,8 +141,16 @@ class UserInfo extends React.Component {
             </Button>
 
           </form>
-          {/* <Button onClick={this.handleDelete} size="small">Delete</Button> */}
-
+           {this.state.updateUser && (
+            <Button
+              onClick={this.handleDelete}
+              variant="contained"
+              color="secondary"
+              className={classes.button}
+              startIcon={<DeleteIcon />}
+            >Delete Account</Button>
+          )}
+        
         </CardActions>
       </Card>
 
@@ -105,3 +160,4 @@ class UserInfo extends React.Component {
 }
 
 export default withStyles(styles)(UserInfo);
+

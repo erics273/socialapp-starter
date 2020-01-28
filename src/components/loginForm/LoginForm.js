@@ -5,6 +5,8 @@ import "./LoginForm.css";
 import TextField from '@material-ui/core/TextField';
 import InputBase from '@material-ui/core/InputBase'
 import { fade, withStyles } from '@material-ui/core/styles';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import BubbleChartIcon from '@material-ui/icons/BubbleChart';
 
 const styles = theme => ({
   
@@ -36,6 +38,24 @@ const styles = theme => ({
       },
     },
   },
+  userIcon: {
+    width: theme.spacing(7),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  passIcon: {
+    width: theme.spacing(7),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 });
 
 class LoginForm extends React.Component {
@@ -59,6 +79,9 @@ class LoginForm extends React.Component {
         <form id="login-form" onSubmit={this.handleLogin}>
           {/* <label htmlFor="username">Username: </label> */}
           <div className={classes.login}>
+          <div className={classes.userIcon}>
+            <AccountCircleIcon />
+            </div>
             <InputBase
               placeholder="username"
               name="username"
@@ -70,7 +93,12 @@ class LoginForm extends React.Component {
               inputProps={{ 'aria-label': 'search' }}
             />
             </div>
+
             <div className={classes.login}>
+            <div className={classes.passIcon}>
+            <BubbleChartIcon />
+            </div>
+            
             <InputBase
               placeholder="password"
               name="password"

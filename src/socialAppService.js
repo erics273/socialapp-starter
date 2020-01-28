@@ -27,8 +27,8 @@ class SocialAppService {
         })
     }
 
-    updateUser(username, credentials) {
-        return this.client.push(this.url + this.endpoint.users + username, credentials)
+    updateUser(username, data) {
+        return this.client.patch(this.url + this.endpoint.users + username, data)
     }
 
     //PICTURE DATA SIZE IS RESTRICTED TO <= 200kb
@@ -45,32 +45,52 @@ class SocialAppService {
         return this.client.get(this.url + this.endpoint.users + username + "/picture")
     }
 
-    getUsersList(limit) {
-        return this.client.get(this.url + this.endpoint.users)
+    getUser(username) {
+        return this.client.get(this.url + this.endpoint.users + username)
     }
+
+    // getUsersList(limit) {
+    //     return this.client.get(this.url + this.endpoint.users)
+    // }
 
 
     /*Message functions */
     createMessage(content) {
-        return this.client.post(this.url + this.endpoint.messages, content)
+        return this.client.post(this.url + this.endpoint.messages, content, {
+            headers: {
+                Authorization: "Bearer " + this.token.result.token
+            }
+        })
     }
 
     getMessagesList(limit, username) {
-        return this.client.get(this.url + this.endpoint.messages)
+        return this.client.get(this.url + this.endpoint.messages + ("?limit=" + limit))
     }
-
+    
+    getMessage(messageId) {
+        return this.client.get(this.url + this.endpoint.messages + messageId)
+    }
+    
     deleteMessage(messageId) {
-        return this.client.delete(this.url + this.endpoint.messages, messageId)
+        return this.client.delete(this.url + this.endpoint.messages + messageId)
     }
 
 
     /*Like functions*/
     addLike(messageId) {
-        return this.client.post(this.url + this.endpoint.likes, messageId)
+        return this.client.post(this.url + this.endpoint.likes, { messageId: messageId }, {
+            headers: {
+                Authorization: "Bearer " + this.token.result.token
+            }
+        })
     }
 
     deleteLike(likeId) {
-        return this.client.delete(this.url + this.endpoint.likes, likeId)
+        return this.client.delete(this.url + this.endpoint.likes + likeId, {
+            headers: {
+                Authorization: "Bearer " + this.token.result.token
+            }
+        })
     }
 }
 
