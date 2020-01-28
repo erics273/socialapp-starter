@@ -49,9 +49,9 @@ class SocialAppService {
         return this.client.get(this.url + this.endpoint.users + username)
     }
 
-    // getUsersList(limit) {
-    //     return this.client.get(this.url + this.endpoint.users)
-    // }
+    getUsersList(limit) {
+        return this.client.get(this.url + this.endpoint.users)
+    }
 
 
     /*Message functions */
