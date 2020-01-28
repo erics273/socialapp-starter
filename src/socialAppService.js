@@ -47,7 +47,11 @@ class SocialAppService {
 
     /*Message functions */
     createMessage(content) {
-        return this.client.post(this.url + this.endpoint.messages, content)
+        return this.client.post(this.url + this.endpoint.messages, content, {
+            headers: {
+                Authorization: "Bearer " + this.token.result.token
+            }
+        })
     }
 
     getMessagesList(limit, username) {
