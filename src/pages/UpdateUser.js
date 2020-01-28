@@ -5,6 +5,7 @@ import BlueService from "../blueService"
 import ProfileDisplay from "../components/profileDisplay/ProfileDisplay"
 import Message from "../components/message/message"
 import MessageForm from "../components/messageForm/MessageForm";
+import UserForm from "../components/userForm/UserForm"
 
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
@@ -31,17 +32,7 @@ class Profile extends React.Component {
       <>
         <Menu isAuthenticated={this.props.isAuthenticated} />
         <Container>
-          <Row>
-            <Col>
-
-
-             
-            </Col>
-            <Col>
-              
-          
-          </Col>
-          </Row>
+        <UserForm/>
         </Container>
       </>
 
@@ -51,5 +42,6 @@ class Profile extends React.Component {
 
 
 }
+
 
 export default userIsAuthenticated(Profile);
