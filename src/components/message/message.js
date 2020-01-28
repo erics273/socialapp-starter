@@ -3,8 +3,6 @@ import DisplayMessage from '../displayMessage/displayMessage'
 import DisplayLike from '../displayLike/DisplayLike';
 import BlueService from '../../blueService';
 
-import Accordion from 'react-bootstrap/Accordion'
-
 class Message extends React.Component {
     constructor(props) {
         super(props);
@@ -72,33 +70,25 @@ class Message extends React.Component {
             let messageArray = [];
             let tempLikesArray = []
             for (let i = 0; i < this.state.dataMessages.messages.length; i++) {
-                tempLikesArray = [];
-                for (let j = 0; j < this.state.dataMessages.messages[i].likes.length; j++) {
-                    tempLikesArray.push(
-                        <DisplayLike
-                            key={this.state.dataMessages.messages[i].likes[j].id}
-                            username={this.state.dataMessages.messages[i].likes[j].username}
-                            date={this.state.dataMessages.messages[i].likes[j].createdAt}
-                        />
-                    );
-                }
+
 
                 messageArray.push(
                     <DisplayMessage
 
                         key={this.state.dataMessages.messages[i].id}
+                        id={this.state.dataMessages.messages[i].id}
                         message={this.state.dataMessages.messages[i].text}
                         username={this.state.dataMessages.messages[i].username}
                         date={this.state.dataMessages.messages[i].createdAt}
                         likes={this.state.dataMessages.messages[i].likes.length}
-                        likeArray={tempLikesArray}
+
                     />
 
                 )
             }
 
             return (
-                <Accordion >
+                <>
                     {/* {this.state.dataMessages.messages.map((message)=>{
                         return <DisplayMessage
                             key={message.id}
@@ -109,7 +99,7 @@ class Message extends React.Component {
                         />
                     })} */}
                     {messageArray}
-                </Accordion>
+                </>
             )
         }
         else {

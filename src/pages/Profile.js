@@ -23,10 +23,10 @@ class Profile extends React.Component {
   }
 
   getProfile() {
-    return this.client.getUserName().then(result => {
-      //console.log(result)
-      // console.log(result.data)
-      // console.log(result.data.user)
+    console.log(this.props.match.params.username)
+    return this.client.getUserName(this.props.match.params.username)
+    .then(result => {
+
       console.log(result.data.user.username)
       console.log(result.data.user.displayName)
       console.log(result.data.user.about)
