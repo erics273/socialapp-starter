@@ -24,7 +24,9 @@ class CreateMessage extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.client.createMessage(this.state.formData)
+    this.client.createMessage(this.state.formData).then(result => {
+        this.props.getMessageHandler();
+      });
   };
 
   render() {

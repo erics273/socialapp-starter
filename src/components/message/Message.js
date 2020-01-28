@@ -30,11 +30,13 @@ export default function Message(props) {
   const classes = useStyles();
 
   const handleLike = event => {
-    let messageData = props.client.getMessage(props.id)
+
+    let userInfo = JSON.parse(localStorage.getItem("login"))
+    
     let likeId = ""
     for (let like of props.likes)
     {
-      if (like.username == "abc") {
+      if (like.username === userInfo.result.username) {
         liked = true
         likeId = like.id
         console.log(likeId)
@@ -43,11 +45,15 @@ export default function Message(props) {
 
       if (!liked) {
         liked = true;
-        return props.client.addLike(props.id)
+        return props.client.addLike(props.id).then(result => {
+          props.getMessageHandler();
+        });
       }
       else {
         liked = false
-        return props.client.deleteLike(likeId)
+        return props.client.deleteLike(likeId).then(result => {
+          props.getMessageHandler();
+        });
       }
   }
 

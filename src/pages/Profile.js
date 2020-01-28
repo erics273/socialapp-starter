@@ -5,9 +5,33 @@ import UserInfo from "../components/userInfo/UserInfo";
 import MessageFeed from "../components/messageFeed/MessageFeed";
 import SuggestedUsers from "../components/suggestedUsers/SuggestedUsers"
 import CreateMessage from "../components/createMessage/CreateMessage"
+import SocialAppService from "../socialAppService";
 
 
 class Profile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.client = new SocialAppService();
+    this.state = {
+      messageData: []
+    };
+  }
+   
+  
+  getMessageList = () => {
+      return this.client.getMessagesList(25).then(result => {
+        this.setState({
+          messageData: result.data.messages
+        });
+      });
+    }
+
+    componentDidMount() {
+      this.getMessageList();
+    }
+
+
+
   render() {
     return (
       <>
@@ -15,8 +39,8 @@ class Profile extends React.Component {
         <h2>Profile</h2>
         <UserInfo username={this.props.match.params.username}/>
         <br />
-        <CreateMessage/>
-        <MessageFeed/>
+        <CreateMessage getMessageHandler={this.getMessageList}/>
+        <MessageFeed getMessageHandler={this.getMessageList} messages={this.state.messageData} />
         <SuggestedUsers/>
       </>
     );
