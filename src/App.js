@@ -8,6 +8,7 @@ import Message from "./components/message/message";
 import Registration from "./components/registration/Registration";
 import MessageForm from "./components/messageForm/MessageForm";
 import MessagePage from "./pages/MessagePage";
+import UserForm from "./components/userForm/UserForm";
 import UsersPage from "./pages/UsersPage";
 // import Profile from "./components/profile.js/Profile"
 
@@ -53,11 +54,11 @@ class App extends React.Component {
             path="/messagepage/:messageID"
             component={MessagePage}
           />
-          {/* <Route
+          <Route
             exact
             path="/userForm"
             component={UserForm}
-          /> */}
+          />
           <Route
             exact
             path="*"
