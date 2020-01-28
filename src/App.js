@@ -51,6 +51,11 @@ class App extends React.Component {
             path="/messagepage/:messageID"
             component={MessagePage}
           />
+          {/* <Route
+            exact
+            path="/userForm"
+            component={UserForm}
+          /> */}
           <Route
             exact
             path="*"
