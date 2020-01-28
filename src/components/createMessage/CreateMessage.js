@@ -26,6 +26,7 @@ class CreateMessage extends React.Component {
     event.preventDefault();
     this.client.createMessage(this.state.formData).then(result => {
         this.props.getMessageHandler();
+        this.setState({formData: {text: ""}})
       });
   };
 
@@ -33,7 +34,7 @@ class CreateMessage extends React.Component {
     return (
       <form
         className="createmessage"
-        onChange={this.handleChange}
+        
         onSubmit={this.handleSubmit}
       >
         <div className="h2Element">
@@ -45,7 +46,10 @@ class CreateMessage extends React.Component {
           name="text"
           label="Write message"
           variant="outlined"
+          value={this.state.formData.text}
+          onChange={this.handleChange}
         />
+
         <br />
         <br />
 
