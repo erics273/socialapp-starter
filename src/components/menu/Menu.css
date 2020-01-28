@@ -19,3 +19,7 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+#title {
+width: 100px;
+}

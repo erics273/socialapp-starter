@@ -2,6 +2,7 @@ import React from "react";
 import Menu from "../components/menu/Menu";
 import { userIsAuthenticated } from "../HOCs";
 import UserInfo from "../components/userInfo/UserInfo";
+import CreateMessage from "../components/createMessage/CreateMessage";
 import MessageFeed from "../components/messageFeed/MessageFeed";
 import SuggestedUsers from "../components/suggestedUsers/SuggestedUsers"
 import CreateMessage from "../components/createMessage/CreateMessage"
@@ -37,8 +38,12 @@ class Profile extends React.Component {
       <>
         <Menu isAuthenticated={this.props.isAuthenticated} />
         <h2>Profile</h2>
+        <br/>
+        <CreateMessage/>
+        <br/>
         <UserInfo username={this.props.match.params.username}/>
         <br />
+
         <CreateMessage getMessageHandler={this.getMessageList}/>
         <MessageFeed getMessageHandler={this.getMessageList} messages={this.state.messageData} />
         <SuggestedUsers/>
