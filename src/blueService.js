@@ -40,8 +40,8 @@ class BlueService {
 
 
 
-    getUserName() {
-        return this.client.get(this.url + "users/bijcher");
+    getUserName(username) {
+        return this.client.get(this.url + "users/" + username);
     }
 
     getMultipleMessages() {

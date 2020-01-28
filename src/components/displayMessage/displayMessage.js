@@ -1,9 +1,11 @@
 import React from "react";
 import Card from 'react-bootstrap/Card'
-import Accordion from 'react-bootstrap/Accordion'
-import Button from 'react-bootstrap/Button'
+
+
+import Nav from 'react-bootstrap/Nav';
 
 function DisplayMessage(props) {
+
   return (
     // <div>
     //   <div>message:{props.message}</div>
@@ -12,24 +14,25 @@ function DisplayMessage(props) {
     // </div>
     <>
       <Card border="primary"  >
-        <Card.Header>{props.username}</Card.Header>
+        <Card.Header>
+          <Nav.Link href={"/profile/" + props.username}>{props.username}</Nav.Link>
+        </Card.Header>
         <Card.Body>
           <Card.Text>
-            {props.message}
+            <Nav.Link href={"/messagepage/"+ props.id}>{props.message}</Nav.Link>
+           {/* {props.message} */}
           </Card.Text>
         </Card.Body>
         <Card.Footer>
           {props.date}
-          <Accordion.Toggle as={Button} variant="link" eventKey={props.key}>
+
           Likes
-        </Accordion.Toggle>
+
 
           {props.likes}
         
         </Card.Footer>
-        <Accordion.Collapse eventKey={props.key}>
-          <Card.Body>{props.likeArray}</Card.Body>
-        </Accordion.Collapse>
+
       </Card>
       {/* <br /> */}
     </>

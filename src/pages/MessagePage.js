@@ -5,8 +5,8 @@ import BlueService from "../blueService";
 import DisplayMessage from "../components/displayMessage/displayMessage";
 import DisplayLike from "../components/displayLike/DisplayLike";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container'
 
 class MessagePage extends React.Component {
 
@@ -35,16 +35,16 @@ class MessagePage extends React.Component {
     }
 
     render() {
-        console.log(this.state.data)
         if (this.state.data.message) {
 
             let likeArray = [];
             for(let i = 0; i < this.state.data.message.likes.length; i++){
                 likeArray.push(
                     <DisplayLike
+                    likeInfo={this.state.data.message.likes[i]}
                     key={this.state.data.message.likes[i].id} 
-                    username={this.state.data.message.likes[i].username}
-                    date={this.state.data.message.likes[i].createdAt}
+                    // username={this.state.data.message.likes[i].username}
+                    // date={this.state.data.message.likes[i].createdAt}
                     />
                 )
             }
@@ -52,8 +52,8 @@ class MessagePage extends React.Component {
             return (
                 <>
                     <Menu isAuthenticated={this.props.isAuthenticated} />
-                    <div>
-                        MessagePage! {this.props.match.params.messageID}
+                    <Container>
+                        <br/>
                         <DisplayMessage
                             key={this.state.data.message.id}
                             message={this.state.data.message.text}
@@ -61,7 +61,7 @@ class MessagePage extends React.Component {
                             data={this.state.data.message.createdAt}
                         />
                         {likeArray}
-                    </div>
+                    </Container>
                 </>
             );
         }
