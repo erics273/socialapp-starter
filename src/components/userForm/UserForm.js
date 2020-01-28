@@ -28,11 +28,11 @@ class UserForm extends Component {
 
         console.log(this.state.formUpdate.text);
 
-        this.client.postMessage(this.state.formUpdate.text)
+        this.client.updateUser(this.state.formUpdate.text)
             .then((response) => {
                 console.log(response)
 
-                this.getMessages();
+                // this.getMessages();
 
                 this.setState({
                     messageError: "",
@@ -53,21 +53,21 @@ class UserForm extends Component {
         console.log(this.state.formUpdate.name);
         console.log(this.state.formUpdate.password);
 
-        // this.client.postMessage(this.state.formUpdate.message)
-        //     .then((response) => {
-        //         console.log(response)
+        this.client.updateUser(this.state.formUpdate.about,this.state.formUpdate.name,this.state.formUpdate.password)
+            .then((response) => {
+                console.log(response)
 
-        //         this.getMessages();
+                this.getMessages();
 
-        //         this.setState({
-        //             messageError: "",
-        //             formUpdate: {
-        //                 text: "",
-        //             }
-        //         });
-        //     }).catch((error) => {
-        //         console.log(error)
-        //     });
+                this.setState({
+                    messageError: "",
+                    formUpdate: {
+                        text: "",
+                    }
+                });
+            }).catch((error) => {
+                console.log(error)
+            });
     }
 
     handleChangeMessageStrap = (event) => {
