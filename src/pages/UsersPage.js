@@ -16,13 +16,25 @@ class Profile extends React.Component {
     super(props);
     this.client = new BlueService();
     this.state = {
-      dataUser: {},
+      dataUsers: {},
 
 
     }
   }
 
+  getUsers(users) {
+    return this.client.getUsers(users).then(result => {
+        this.setState({
+            data: result.data
+        })
+    })
+}
 
+getMultipleUsers() {
+  return this.client.getMultipleUsers().then(result => {
+      console.log()
+  })
+}
   render() {
     let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
     console.log(tempLoginInfo);

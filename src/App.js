@@ -61,6 +61,11 @@ class App extends React.Component {
           />
           <Route
             exact
+            path="/userspage"
+            component={UsersPage}
+          />
+          <Route
+            exact
             path="*"
             component={NotFound}
           />
