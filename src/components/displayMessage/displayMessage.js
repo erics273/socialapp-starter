@@ -6,8 +6,9 @@ function DisplayMessage(props) {
       <div>message:{props.message}</div>
       <div>username:{props.username}</div>
       <div>data:{props.data}</div>
-      <div><button>Likes:{props.likes}</button></div>
-    </div>
+      <button>Thumps:</button>
+      <div>Likes:{props.likes}</div>
+      </div>
   );
 }
 
