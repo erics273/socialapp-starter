@@ -50,7 +50,7 @@ class CreateMessage extends React.Component {
         <br />
         <div>
           <button className="postButton" type="submit">
-            Submit
+            Post
           </button>
         </div>
       </form>
