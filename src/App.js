@@ -8,9 +8,11 @@ import Message from "./components/message/message";
 import Registration from "./components/registration/Registration";
 import MessageForm from "./components/messageForm/MessageForm";
 import MessagePage from "./pages/MessagePage";
+import UsersPage from "./pages/UsersPage";
 // import Profile from "./components/profile.js/Profile"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 class App extends React.Component {
   render() {
@@ -61,6 +63,7 @@ class App extends React.Component {
             path="*"
             component={NotFound}
           />
+          
           
       </Switch>
     );
