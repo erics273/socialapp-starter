@@ -2,6 +2,12 @@ import React, { Component } from "react";
 // import { userIsNotAuthenticated } from "../../HOCs";
 import BlueService from '../../blueService';
 
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 class MessageForm extends Component {
     constructor(props) {
         super(props);
@@ -9,7 +15,7 @@ class MessageForm extends Component {
         this.state = {
             messageError: "",
             formMessage: {
-                text: ""
+                message: ""
             },
         };
     }
@@ -38,6 +44,36 @@ class MessageForm extends Component {
 
     }
 
+    submitMessageStrap = (event) => {
+        event.preventDefault();
+        
+        console.log(this.state.formMessage.message);
+
+        this.client.postMessage(this.state.formMessage.message)
+            .then((response) => {
+                console.log(response)
+
+                this.getMessages();
+
+                this.setState({
+                    messageError: "",
+                    formMessage: {
+                        text: "",
+                    }
+                });
+            }).catch((error) => {
+                console.log(error)
+            });
+    }
+
+    handleChangeMessageStrap = (event) => {
+        console.log(event.target.id);
+        console.log(event.target.value);
+        let formMessage = this.state.formMessage;
+        formMessage[event.target.id] = event.target.value;
+        this.setState({formMessage});
+    }
+
     handleChangeMessage = (event) => {
         let formMessage = this.state.formMessage;
         formMessage[event.target.name] = event.target.value;
@@ -46,27 +82,27 @@ class MessageForm extends Component {
     }
 
     render() {
-        
-        
-        return (
-            <div>
-                <form onSubmit={this.submitMessage}>
 
-                    <div>
-                        <label>Ink:</label>
-                        <input
-                            onChange={this.handleChangeMessage}
-                            type="text"
-                            name="text"
-                            value={this.state.formMessage.text}
-                        />
-                    </div>
-                    <button>Spill Ink</button>
-                    <div>
-                        {this.state.messageError}
-                    </div>
-                </form>
-            </div>
+
+        return (
+            <Container>
+
+                <Form onSubmit={this.submitMessageStrap}>
+
+                    <Form.Group controlId="message">
+                        <Form.Label>Ink</Form.Label>
+                        <Form.Control onChange={this.handleChangeMessageStrap} placeholder="Ink" />
+                        <Form.Text className="text-muted">
+                            Spill Some Ink
+                            </Form.Text>
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+
+                </Form>
+
+            </Container>
         )
     }
 

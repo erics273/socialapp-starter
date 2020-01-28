@@ -3,6 +3,12 @@ import Menu from "../components/menu/Menu";
 import { userIsAuthenticated } from "../HOCs";
 import BlueService from "../blueService"
 import ProfileDisplay from "../components/profileDisplay/ProfileDisplay"
+import Message from "../components/message/message"
+import MessageForm from "../components/messageForm/MessageForm";
+
+import Container from 'react-bootstrap/Container'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
 class Profile extends React.Component {
 
@@ -10,7 +16,7 @@ class Profile extends React.Component {
     super(props);
     this.client = new BlueService();
     this.state = {
-      data: {},
+      dataUser: {},
 
 
     }
@@ -27,13 +33,13 @@ class Profile extends React.Component {
 
 
       this.setState({
-        data: result.data.user
+        dataUser: result.data.user
       })
 
     })
   }
 
-  deleteUser=() => {
+  deleteUser = () => {
     let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
     console.log(tempLoginInfo.result.username)
     return this.client.deleteUser(tempLoginInfo.result.username)
@@ -47,10 +53,10 @@ class Profile extends React.Component {
       });
 
 
-   
-     
 
-   
+
+
+
   }
 
   componentDidMount() {
@@ -58,17 +64,34 @@ class Profile extends React.Component {
   }
 
   render() {
+    let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
+    console.log(tempLoginInfo);
     return (
 
       <>
         <Menu isAuthenticated={this.props.isAuthenticated} />
-        <ProfileDisplay
-          username={this.state.data.username}
-          displayName={this.state.data.displayName}
-          about={this.state.data.about}
-        />
-        <h2>Profile</h2>
-        <button onClick={this.deleteUser}>Delete User</button>
+        <Container>
+          <Row>
+          <Col>
+
+            <ProfileDisplay
+              username={this.state.dataUser.username}
+              displayName={this.state.dataUser.displayName}
+              about={this.state.dataUser.about}
+            />
+            <h2>Profile</h2>
+            <button onClick={this.deleteUser}>Delete User</button>
+
+          </Col>
+          <Col>
+            <MessageForm/>
+            <Message/>
+          </Col>
+          <Col>
+            List of Profiles
+          </Col>
+          </Row>
+        </Container>
       </>
 
     );
