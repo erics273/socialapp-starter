@@ -9,7 +9,7 @@ import MessageForm from "../components/messageForm/MessageForm";
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-
+import Nav from 'react-bootstrap/Nav';
 class Profile extends React.Component {
 
   constructor(props) {
@@ -72,23 +72,23 @@ class Profile extends React.Component {
         <Menu isAuthenticated={this.props.isAuthenticated} />
         <Container>
           <Row>
-          <Col>
+            <Col>
 
-            <ProfileDisplay
-              username={this.state.dataUser.username}
-              displayName={this.state.dataUser.displayName}
-              about={this.state.dataUser.about}
-            />
-            <h2>Profile</h2>
-            <button onClick={this.deleteUser}>Delete User</button>
-
-          </Col>
-          <Col>
-            <MessageForm/>
-            <Message/>
-          </Col>
-          <Col>
-            List of Profiles
+              <ProfileDisplay
+                username={this.state.dataUser.username}
+                displayName={this.state.dataUser.displayName}
+                about={this.state.dataUser.about}
+              />
+              <h2>Profile</h2>
+              <button onClick={this.deleteUser}>Delete User
+            <Nav.Link href="/" onSelect={this.handleLogout}></Nav.Link></button>
+            </Col>
+            <Col>
+              <MessageForm />
+              <Message />
+            </Col>
+            <Col>
+              List of Profiles
           </Col>
           </Row>
         </Container>

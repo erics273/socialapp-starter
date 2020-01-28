@@ -34,7 +34,7 @@ class BlueService {
         return this.client.get(this.url + 'messages/15');
     }
 
-    gitMessageSpecific(messageID){
+    gitMessageSpecific(messageID) {
         return this.client.get(this.url + 'messages/' + messageID);
     }
 
@@ -73,18 +73,47 @@ class BlueService {
         return this.client.post(this.url + "users", bodyParameters)
     }
 
-    deleteUser(username){
+    deleteUser(username) {
         let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
-    
+
         var config = {
             headers: { 'Authorization': "bearer " + tempLoginInfo.result.token }
         }
-    console.log(username)
+        console.log(username)
         //  var bodyParameters = {
         //     "username": username
         //  }
-         return this.client.delete(this.url + "users/" + username, config)
-     }
+        return this.client.delete(this.url + "users/" + username, config)
+    }
+
+    deleteMessage(messageId) {
+
+        let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
+
+        var config = {
+            headers: { 'Authorization': "bearer " + tempLoginInfo.result.token }
+        };
+
+        // var bodyParameters = {
+        //     "messageId": messageId
+        // }
+
+        return this.client.delete(this.url + "messages/" + messageId, config)
+    }
+
+    updateUser(about, displayName, password) {
+        let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
+
+        var config = {
+            headers: { 'Authorization': "bearer " + tempLoginInfo.result.token }
+        };
+        var bodyParameters = {
+            "about": about,
+            "displayName": displayName,
+            "password": password
+        }
+        return this.client.patch(this.url + "users/" + tempLoginInfo.result.username, bodyParameters, config)
+    }
 
 }
 export default BlueService;
