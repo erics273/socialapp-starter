@@ -66,7 +66,7 @@ class BlueService {
         return this.client.post(this.url + "messages", bodyParameters, config)
     }
 
-    postLikes(messageID) {
+    postLike(messageID) {
 
         let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
 
@@ -80,6 +80,19 @@ class BlueService {
 
         return this.client.post(this.url + "likes", bodyParameters, config)
     }
+
+    deleteLike(likeID){
+        let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
+    
+        var config = {
+            headers: { 'Authorization': "bearer " + tempLoginInfo.result.token }
+        }
+    // console.log(username)
+        //  var bodyParameters = {
+        //     "messageID": messageID
+        //  }
+         return this.client.delete(this.url + "likes/" + likeID,  config)
+     }
 
     postNewUser(username, displayName, password) {
         var bodyParameters = {

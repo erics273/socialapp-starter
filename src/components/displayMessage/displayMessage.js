@@ -1,5 +1,7 @@
 import React from "react";
 import Card from 'react-bootstrap/Card'
+import Accordion from 'react-bootstrap/Accordion'
+import Button from 'react-bootstrap/Button'
 
 function DisplayMessage(props) {
   return (
@@ -18,10 +20,16 @@ function DisplayMessage(props) {
         </Card.Body>
         <Card.Footer>
           {props.date}
-          likes
+          <Accordion.Toggle as={Button} variant="link" eventKey={props.key}>
+          Likes
+        </Accordion.Toggle>
+
           {props.likes}
         
         </Card.Footer>
+        <Accordion.Collapse eventKey={props.key}>
+          <Card.Body>{props.likeArray}</Card.Body>
+        </Accordion.Collapse>
       </Card>
       {/* <br /> */}
     </>

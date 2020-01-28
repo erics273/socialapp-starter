@@ -46,17 +46,9 @@ class Profile extends React.Component {
       .then((response) => {
         console.log(response)
 
-
-
       }).catch((error) => {
         console.log(error)
       });
-
-
-
-
-
-
   }
 
   componentDidMount() {
@@ -72,24 +64,24 @@ class Profile extends React.Component {
         <Menu isAuthenticated={this.props.isAuthenticated} />
         <Container>
           <Row>
-            <Col>
 
-              <ProfileDisplay
-                username={this.state.dataUser.username}
-                displayName={this.state.dataUser.displayName}
-                about={this.state.dataUser.about}
-              />
-              <h2>Profile</h2>
-              <button onClick={this.deleteUser}>Delete User
-            <Nav.Link href="/" onSelect={this.handleLogout}></Nav.Link></button>
-            </Col>
-            <Col>
-              <MessageForm />
-              <Message />
-            </Col>
-            <Col>
-              List of Profiles
+          <Col>
+
+            <ProfileDisplay
+              username={this.state.dataUser.username}
+              displayName={this.state.dataUser.displayName}
+              about={this.state.dataUser.about}
+            />
+            <h2>Profile</h2>
+            <button onClick={this.deleteUser}>Delete User</button>
+
           </Col>
+          <Col>
+            <MessageForm/>
+            <Message/>
+          </Col>
+
+
           </Row>
         </Container>
       </>
