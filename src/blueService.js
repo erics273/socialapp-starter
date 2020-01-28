@@ -30,9 +30,9 @@ class BlueService {
     //   console.log(error)
     // });
 
-    getMessage() {
-        return this.client.get(this.url + 'messages/15');
-    }
+    // getMessage() {
+    //     return this.client.get(this.url + 'messages/15');
+    // }
 
     gitMessageSpecific(messageID) {
         return this.client.get(this.url + 'messages/' + messageID);
