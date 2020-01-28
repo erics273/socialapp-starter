@@ -61,6 +61,7 @@ class MessageFeed extends Component {
         })
         return (
             <div>
+              <h1>Comments</h1>  
                 <List className={classes.root}>
                     {messages}
                 </List>

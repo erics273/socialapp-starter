@@ -4,7 +4,7 @@ import { userIsAuthenticated } from "../HOCs";
 import UserInfo from "../components/userInfo/UserInfo";
 import MessageFeed from "../components/messageFeed/MessageFeed";
 import SuggestedUsers from "../components/suggestedUsers/SuggestedUsers"
-
+import CreateMessage from "../components/createMessage/CreateMessage"
 
 
 class Profile extends React.Component {
@@ -15,6 +15,7 @@ class Profile extends React.Component {
         <h2>Profile</h2>
         <UserInfo username={this.props.match.params.username}/>
         <br />
+        <CreateMessage/>
         <MessageFeed/>
         <SuggestedUsers/>
       </>
