@@ -23,8 +23,14 @@ class Menu extends React.Component {
           <Nav.Link href="/profile">Profile</Nav.Link>
           <Nav.Link href="/registration">Registration</Nav.Link>
           <Nav.Link href="/messageform">messageForm</Nav.Link>
+
           {/*  bellow line no longer needed */}
           {/* <Nav.Link href="/messagepage/1">MessagePage</Nav.Link> */}
+
+          <Nav.Link href="/userspage">Userspage</Nav.Link>
+
+          <Nav.Link href="/userform">UserPage</Nav.Link>
+
           <Nav.Link href="/" onSelect={this.handleLogout}>Logout</Nav.Link>
         </Nav>
 
