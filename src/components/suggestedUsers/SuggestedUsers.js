@@ -34,8 +34,8 @@ class SuggestedUsers extends Component {
     }
   }
   render() {
-    const { classes } = this.props;
-    const bull = <span className={classes.bullet}>•</span>;
+    // const { classes } = this.props;
+    // const bull = <span className={classes.bullet}>•</span>;
     return (
       <div className="card2">
             <h2>Suggested Users</h2>
