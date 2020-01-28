@@ -1,11 +1,14 @@
-.card {
+.card2 {
     position: absolute;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    right: 50px;
-    top: 355px;
-    bottom: 300px;
-    width: 400px;
-    height: 200px;
+    left: 850px;
+    top: 338px;
+    
+}
+
+h2 {
+    display: flex;
+    font-size: 1.5em;
+    font-weight: bold;
+    
 }
