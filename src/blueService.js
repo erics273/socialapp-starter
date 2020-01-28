@@ -63,6 +63,20 @@ class BlueService {
         return this.client.post(this.url + "messages", bodyParameters, config)
     }
 
+    postLikes(messageID) {
+
+        let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
+
+        var config = {
+            headers: { 'Authorization': "bearer " + tempLoginInfo.result.token }
+        };
+
+        var bodyParameters = {
+            "messageID": messageID
+        }
+
+        return this.client.post(this.url + "likes", bodyParameters, config)
+    }
 
     postNewUser(username, displayName, password) {
         var bodyParameters = {
