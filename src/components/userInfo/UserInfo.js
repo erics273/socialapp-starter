@@ -52,10 +52,6 @@ class UserInfo extends React.Component {
     )
   }
 
-  componentDidMount(){
-    this.getCurrentUserPicture()
-  }
-
   handleSubmit = (event) => {
     event.preventDefault();
     const formData = this.fileUpload(this.state.picture)
@@ -93,6 +89,8 @@ class UserInfo extends React.Component {
 
   componentDidMount() {
     this.getUserData()
+    this.getCurrentUserPicture()
+
   }
 
   render() {
@@ -141,6 +139,9 @@ class UserInfo extends React.Component {
             </Button>
 
           </form>
+          <Button onClick={this.handleUpdate} size="small" color="primary">
+              Delete
+            </Button>
            {this.state.updateUser && (
             <Button
               onClick={this.handleDelete}
@@ -159,5 +160,7 @@ class UserInfo extends React.Component {
 
 }
 
-export default withStyles(styles)(UserInfo);
+const connectedUser = withAsyncAction("auth", "logout")(UserInfo)
+
+export default withStyles(styles)(connectedUser);
 
