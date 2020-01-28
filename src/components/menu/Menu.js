@@ -8,6 +8,7 @@ import "./Menu.css";
 import { withAsyncAction } from "../../HOCs";
 import Button from '@material-ui/core/Button';
 import LoginForm from '../loginForm/LoginForm';
+import logo from "../images/Kritter.png"
 
 
 const useStyles = makeStyles(theme => ({
@@ -37,7 +38,7 @@ function Menu(props) {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Kritter
+            <img src={logo} id="title" ></img>
           </Typography>
           {props.isAuthenticated && (
 
@@ -46,7 +47,7 @@ function Menu(props) {
               <Link to="/" onClick={handleLogout}>
                 <Button className={classes.menuButton}>Logout</Button>
               </Link>
-              
+
             </div>
           )}
           {!props.isAuthenticated && (

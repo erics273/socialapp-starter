@@ -33,7 +33,16 @@ class SocialAppService {
 
     //PICTURE DATA SIZE IS RESTRICTED TO <= 200kb
     setUserPicture(username, picture) {
-        return this.client.put(this.url + this.endpoint.users + username, picture)
+        return this.client.put(this.url + this.endpoint.users + username + "/picture", picture, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                Authorization: "Bearer " + this.token.result.token
+            }
+        })
+    }
+
+    getUserPicture(username){
+        return this.client.get(this.url + this.endpoint.users + username + "/picture")
     }
 
     getUsersList(limit) {
