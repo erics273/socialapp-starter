@@ -30,32 +30,12 @@ function SuggestedUsers() {
   const bull = <span className={classes.bullet}>•</span>;
 
   return (
-    <div className="card">
-      {/* <Card className={classes.card}> */}
-        <CardContent>
-          <Typography
-            className={classes.title}
-            color="textSecondary"
-            gutterBottom
-          >
-          <h3>Suggested Users</h3>
-          </Typography>
-          <Typography variant="h5" component="h2">
-            be{bull}nev{bull}o{bull}lent
-          </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            adjective
-          </Typography>
-          <Typography variant="body2" component="p">
-            well meaning and kindly.
-            <br />
-            {'"a benevolent smile"'}
-          </Typography>
-        </CardContent>
-        {/* <CardActions>
-  
-        </CardActions> */}
-      {/* </Card> */}
+    <div className="card2">
+        {/* <CardContent> */}
+          {/* <Typography> */}
+          <h2>Suggested Users</h2>
+          {/* </Typography> */}
+        {/* </CardContent> */}
     </div>
   );
 }

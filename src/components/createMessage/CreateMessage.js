@@ -36,7 +36,6 @@ class CreateMessage extends React.Component {
       >
         <div className="h2Element">
           <h2>Post Message</h2>
-          <br />
         </div>
         <TextField
           required
@@ -45,6 +44,8 @@ class CreateMessage extends React.Component {
           label="Write message"
           variant="outlined"
         />
+        <br />
+        <br />
 
         <br />
         <div>
