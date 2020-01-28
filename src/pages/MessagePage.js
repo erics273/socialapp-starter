@@ -34,6 +34,8 @@ class MessagePage extends React.Component {
         this.getParticularMessage(this.props.match.params.messageID);
     }
 
+   
+
     render() {
         console.log(this.state.data)
         if (this.state.data.message) {
