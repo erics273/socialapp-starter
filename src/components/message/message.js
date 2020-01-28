@@ -31,7 +31,7 @@ class Message extends React.Component {
         })
     }
 
-    postLikes() {
+    postLike() {
         return this.client.postLikes().then(result => {
             console.log(result.data.likes)
             this.setState({
@@ -39,6 +39,27 @@ class Message extends React.Component {
             })
         })
     }
+
+    // deleteLikes() {
+    //     return this.client.deleteLikes().then(result => {
+    //         console.log(result.data.likes)
+    //         this.setState({
+    //             data: result.data
+    //         })
+    //     })
+    // }
+
+    deleteLike = (likeID) => {
+        // let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
+        // console.log(tempLoginInfo.result.username)
+        return this.client.deleteLike(likeID)
+          .then((response) => {
+            console.log(response)
+    
+          }).catch((error) => {
+            console.log(error)
+          });
+      }
 
     componentDidMount() {
         this.getMultipleMessages();
@@ -56,6 +77,7 @@ class Message extends React.Component {
                             message={this.state.dataMessages.messages[i].text}
                             username={this.state.dataMessages.messages[i].username}
                             date={this.state.dataMessages.messages[i].createdAt}
+                            likes={this.state.dataMessages.messages[i].likes.length}
                             likes={this.state.dataMessages.messages[i].likes.length}
                         />
                 )
