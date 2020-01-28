@@ -79,9 +79,7 @@ class Profile extends React.Component {
             <MessageForm/>
             <Message/>
           </Col>
-          <Col>
-            List of Profiles
-          </Col>
+
           </Row>
         </Container>
       </>
