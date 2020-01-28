@@ -31,6 +31,14 @@ class Message extends React.Component {
         })
     }
 
+    postLikes() {
+        return this.client.postLikes().then(result => {
+            console.log(result.data.likes)
+            this.setState({
+                data: result.data
+            })
+        })
+    }
 
     componentDidMount() {
         this.getMultipleMessages();
@@ -41,12 +49,14 @@ class Message extends React.Component {
 
             let messageArray = [];
             for(let i = 0; i < this.state.dataMessages.messages.length; i++){
+            //    console.log(this.state.dataMessages.messages[i].likes.length)
                 messageArray.push(
                     <DisplayMessage
                             key={this.state.dataMessages.messages[i].id}
                             message={this.state.dataMessages.messages[i].text}
                             username={this.state.dataMessages.messages[i].username}
-                            data={this.state.dataMessages.messages[i].createdAt}
+                            date={this.state.dataMessages.messages[i].createdAt}
+                            likes={this.state.dataMessages.messages[i].likes.length}
                         />
                 )
             }
@@ -59,6 +69,7 @@ class Message extends React.Component {
                             message={message.text}
                             username={message.username}
                             data={message.createdAt}
+                            likes={message.likes.length}
                         />
                     })} */}
                     {messageArray}
