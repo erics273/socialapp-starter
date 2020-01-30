@@ -19,10 +19,11 @@ class Menu extends React.Component {
       <Navbar bg="primary" >
         <Navbar.Brand>Blue Ink</Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="/message">Message</Nav.Link>
+          {/* <Nav.Link href="/message">Message</Nav.Link> */}
           <Nav.Link href="/profile">Profile</Nav.Link>
           <Nav.Link href="/registration">Registration</Nav.Link>
-          <Nav.Link href="/messageform">messageForm</Nav.Link>
+          {/* <Nav.Link href="/messageform">messageForm</Nav.Link> */}
+          <Nav.Link href="/messagesfeed">Inks</Nav.Link>
 
           {/*  bellow line no longer needed */}
           {/* <Nav.Link href="/messagepage/1">MessagePage</Nav.Link> */}

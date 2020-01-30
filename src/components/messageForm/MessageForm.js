@@ -8,6 +8,8 @@ import Container from 'react-bootstrap/Container'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// This file might be Depricated
+
 class MessageForm extends Component {
     constructor(props) {
         super(props);
@@ -21,28 +23,28 @@ class MessageForm extends Component {
     }
 
 
-    submitMessage = (event) => {
-        event.preventDefault();
+    // submitMessage = (event) => {
+    //     event.preventDefault();
 
-        console.log(this.state.formMessage.text);
+    //     console.log(this.state.formMessage.text);
 
-        this.client.postMessage(this.state.formMessage.text)
-            .then((response) => {
-                console.log(response)
+    //     this.client.postMessage(this.state.formMessage.text)
+    //         .then((response) => {
+    //             console.log(response)
 
-                this.getMessages();
+    //             this.getMessages();
 
-                this.setState({
-                    messageError: "",
-                    formMessage: {
-                        text: "",
-                    }
-                });
-            }).catch((error) => {
-                console.log(error)
-            });
+    //             this.setState({
+    //                 messageError: "",
+    //                 formMessage: {
+    //                     text: "",
+    //                 }
+    //             });
+    //         }).catch((error) => {
+    //             console.log(error)
+    //         });
 
-    }
+    // }
 
     submitMessageStrap = (event) => {
         event.preventDefault();
@@ -74,12 +76,12 @@ class MessageForm extends Component {
         this.setState({formMessage});
     }
 
-    handleChangeMessage = (event) => {
-        let formMessage = this.state.formMessage;
-        formMessage[event.target.name] = event.target.value;
-        console.log(formMessage[event.target.name]);
-        this.setState({ formMessage });
-    }
+    // handleChangeMessage = (event) => {
+    //     let formMessage = this.state.formMessage;
+    //     formMessage[event.target.name] = event.target.value;
+    //     console.log(formMessage[event.target.name]);
+    //     this.setState({ formMessage });
+    // }
 
     render() {
 
