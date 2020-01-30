@@ -24,3 +24,6 @@
 width: 100px;
 }
 
+.MuiAppBar-colorPrimary{
+ background-color: rgb(100, 155, 100) !important
+}
