@@ -39,7 +39,7 @@ export default function Message(props) {
       if (like.username === userInfo.result.username) {
         liked = true
         likeId = like.id
-        console.log(likeId)
+        // console.log(likeId)
       }
     }
 
