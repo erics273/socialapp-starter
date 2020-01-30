@@ -1,10 +1,20 @@
 import React, { Component } from "react"
 import "./SignupForm.css"
 import TextField from '@material-ui/core/TextField';
+import { withStyles } from '@material-ui/core/styles';
 import { withAsyncAction } from "../../HOCs";
 
 //import our service
 import SocialAppService from "../../socialAppService";
+
+const styles = theme => ({
+    root: {
+      '& .MuiTextField-root': {
+        margin: theme.spacing(1),
+        width: 350,
+      },
+    },
+  });
 
 class SignupForm extends Component {
     constructor(props) {
@@ -44,34 +54,33 @@ class SignupForm extends Component {
     }
 
     render() {
+
+        const { classes } = this.props;
         return (
-            <form className='signup' onChange={this.handleChange} onSubmit={this.handleSubmit}>
+            <form className={classes.root + " signup"} noValidate autoComplete="off" onChange={this.handleChange} onSubmit={this.handleSubmit}>
                 <div className="h1Element">
                     <h1>Sign up</h1>
-                    <br/>
                     </div>
                 <TextField
                     required
-                    className="outlined-required"
+                    id="standard-required"
                     name="username"
                     label="Username"
-                    variant="outlined"
+                    fullWidth="true"
                 />
                 <TextField
                     required
-                    className="outlined-required"
+                    id="standard-required"
                     name="displayName"
                     label="Display Name"
-                    variant="outlined"
                 />
                 <TextField
                     required
-                    id="outlined-password-input"
+                    id="standard-required"
                     name="password"
                     label="Password"
                     type="password"
                     autoComplete="current-password"
-                    variant="outlined"
                 />
                 <br/>
                 <div className="submitButton">
@@ -84,4 +93,4 @@ class SignupForm extends Component {
     }
 }
 
-export default withAsyncAction("auth", "login")(SignupForm)
+export default withStyles(styles)(withAsyncAction("auth", "login")(SignupForm))

@@ -3,12 +3,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    right: 200px;
+    align-items: center;
+    right: 175px;
     top: 200px;
     bottom: 300px;
     width: 400px;
     height: 200px;
-    background-color: white;
 }
 
 .submitButton {
