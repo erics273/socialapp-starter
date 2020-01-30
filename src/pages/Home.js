@@ -20,6 +20,7 @@ class Home extends React.Component {
         <Menu /> 
         
         <div className="description">
+          <h1>Welcome to Kritter!</h1>
         <ListItem>
         <ListItemAvatar>
           <Avatar>
