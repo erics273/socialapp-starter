@@ -10,11 +10,8 @@ import MessageForm from "./components/messageForm/MessageForm";
 import MessagePage from "./pages/MessagePage";
 import UserForm from "./components/userForm/UserForm";
 import UsersPage from "./pages/UsersPage";
-<<<<<<< HEAD
 import MessagesFeed from "./pages/MessagesFeed";
-=======
 import UpdateUser from "./pages/UpdateUser";
->>>>>>> master
 // import Profile from "./components/profile.js/Profile"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
