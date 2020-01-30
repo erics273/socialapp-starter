@@ -1,12 +1,16 @@
-.card2 {
+.card {
     position: absolute;
     display: flex;
-    left: 850px;
-    top: 348px;
-    
+    justify-content: center;
+    left: 55%;
+    top: 25%;
+    width: 40%;
+    min-width: 275px;
+    background: olive;
 }
 
-h2 {
+.title {
     display: flex;
-    font-weight: bold;    
+    font-weight: bold;
 }
+

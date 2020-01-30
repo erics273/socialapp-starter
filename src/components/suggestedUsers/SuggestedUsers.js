@@ -1,47 +1,40 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import { render } from "react-dom";
+import { withRouter } from "react-router-dom";
 import SocialAppService from "../../socialAppService";
 import { withStyles } from "@material-ui/core/styles";
+import "./SuggestedUsers.css"
+
+
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import "./SuggestedUsers.css"
-import { render } from "react-dom";
+import Divider from "@material-ui/core/Divider";
 
-const styles = {
-  card: {
-    minWidth: 275
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)"
-  },
-  title: {
-    fontSize: 14
-  },
-  pos: {
-    marginBottom: 12
-  }
-};
 
 class SuggestedUsers extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      suggestedusers: []
+      suggestedUsers: []
     }
   }
+
   render() {
-    // const { classes } = this.props;
-    // const bull = <span className={classes.bullet}>•</span>;
     return (
-      <div className="card2">
-            <h2>Suggested Users</h2>
-      </div>
+      <Card className="card">
+        <CardContent>
+          <Typography className="title" color="textSecondary" gutterBottom>
+            Suggested Users
+          </Typography>
+          <Divider variant="middle"/>
+
+
+        </CardContent>
+      </Card>
     );
   }
 }
 
-export default withStyles(styles)(SuggestedUsers);
+export default withRouter (SuggestedUsers);
