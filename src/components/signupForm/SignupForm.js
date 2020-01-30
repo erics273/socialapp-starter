@@ -43,18 +43,9 @@ class SignupForm extends Component {
                 password: this.state.formData.password
             })
         )
-
-        //clear fields for registration && error message
-        // this.setState(
-        //     { formData: {
-        //     username: "",
-        //     displayName: "",
-        //     password: ""
-        // }})
     }
 
     render() {
-
         const { classes } = this.props;
         return (
             <form className={classes.root + " signup"} noValidate autoComplete="off" onChange={this.handleChange} onSubmit={this.handleSubmit}>
