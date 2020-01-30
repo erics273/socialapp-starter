@@ -30,7 +30,7 @@ class Menu extends React.Component {
 
           <Nav.Link href="/userspage">Users</Nav.Link>
 
-          <Nav.Link href="/userform">UserPage</Nav.Link>
+          <Nav.Link href="/userform">Update User</Nav.Link>
 
           <Nav.Link href="/" onSelect={this.handleLogout}>Logout</Nav.Link>
         </Nav>
