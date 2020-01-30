@@ -90,14 +90,12 @@ class MessageForm extends Component {
                 <Form onSubmit={this.submitMessageStrap}>
 
                     <Form.Group controlId="message">
-                        <Form.Label>Ink</Form.Label>
+                        {/* <Form.Label>Ink</Form.Label> */}
                         <Form.Control onChange={this.handleChangeMessageStrap} placeholder="Ink" />
-                        <Form.Text className="text-muted">
-                            Spill Some Ink
-                            </Form.Text>
+
                     </Form.Group>
                     <Button variant="primary" type="submit">
-                        Submit
+                        Spill Ink
                     </Button>
 
                 </Form>

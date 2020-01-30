@@ -66,7 +66,7 @@ class Profile extends React.Component {
           <Row>
 
           <Col>
-
+            <br/>
             <ProfileDisplay
               username={this.state.dataUser.username}
               displayName={this.state.dataUser.displayName}
@@ -77,8 +77,12 @@ class Profile extends React.Component {
 
           </Col>
           <Col>
+          <br/>
             <MessageForm/>
-            <Message/>
+            <br/>
+            <Message
+              user = {this.props.match.params.username}
+            />
           </Col>
 
 
