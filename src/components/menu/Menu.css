@@ -1,5 +1,5 @@
 #menu {
-  background-color: lightskyblue;
+  background-color: #ffdf46;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,11 +10,21 @@
 #menu-links {
   display: flex;
   padding-left: 1em;
+  color: white;
 }
 
 #menu-links a {
   padding-right: 0.5em;
-  color: darkblue;
-  text-decoration: underline;
+  color: white;
+  text-decoration: none;
   cursor: pointer;
+}
+
+#title {
+width: 100px;
+}
+
+#muiToolbar { 
+  background-color: peru;
+
 }
