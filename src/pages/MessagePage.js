@@ -63,6 +63,7 @@ class MessagePage extends React.Component {
         if (this.state.data.message) {
 
             let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
+            
             let loggedInUsername = tempLoginInfo.result.username;
 
             let ButtonVarriant = "";

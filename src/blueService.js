@@ -115,20 +115,20 @@ class BlueService {
         return this.client.delete(this.url + "users/" + username, config)
     }
 
-    deleteMessage(messageId) {
+    // deleteMessage(messageId) {
 
-        let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
+    //     let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
 
-        var config = {
-            headers: { 'Authorization': "bearer " + tempLoginInfo.result.token }
-        };
+    //     var config = {
+    //         headers: { 'Authorization': "bearer " + tempLoginInfo.result.token }
+    //     };
 
-        // var bodyParameters = {
-        //     "messageId": messageId
-        // }
+    //     // var bodyParameters = {
+    //     //     "messageId": messageId
+    //     // }
 
-        return this.client.delete(this.url + "messages/" + messageId, config)
-    }
+    //     return this.client.delete(this.url + "messages/" + messageId, config)
+    // }
 
     updateUser(about, displayName, password) {
         let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
