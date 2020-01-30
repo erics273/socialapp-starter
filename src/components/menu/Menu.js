@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Redirect  } from "react-router-dom";
 import "./Menu.css";
 import { withAsyncAction } from "../../HOCs";
 
+import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
@@ -11,16 +12,19 @@ class Menu extends React.Component {
 
   handleLogout = event => {
     this.props.logout();
+    return <Redirect to={"/"} />
   };
 
   render() {
     // new "menue"
+    // let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
+    // let loggedInUsername = tempLoginInfo.result.username;
     return (
       <Navbar bg="primary" >
         <Navbar.Brand>Blue Ink</Navbar.Brand>
         <Nav className="mr-auto">
           {/* <Nav.Link href="/message">Message</Nav.Link> */}
-          <Nav.Link href="/profile">Profile</Nav.Link>
+          {/* <Nav.Link href={"/profile/" + loggedInUsername}>Profile</Nav.Link> */}
           <Nav.Link href="/registration">Registration</Nav.Link>
           {/* <Nav.Link href="/messageform">messageForm</Nav.Link> */}
           <Nav.Link href="/messagesfeed">Inks</Nav.Link>
@@ -32,7 +36,7 @@ class Menu extends React.Component {
 
           <Nav.Link href="/userform">Update User</Nav.Link>
 
-          <Nav.Link href="/" onSelect={this.handleLogout}>Logout</Nav.Link>
+          <Button onClick={this.handleLogout}>Logout</Button>
         </Nav>
 
       </Navbar>
