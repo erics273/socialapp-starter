@@ -12,6 +12,7 @@ import UserForm from "./components/userForm/UserForm";
 import UsersPage from "./pages/UsersPage";
 import MessagesFeed from "./pages/MessagesFeed";
 import UpdateUser from "./pages/UpdateUser";
+import RegistrationPage from "./pages/RegistrationPage";
 // import Profile from "./components/profile.js/Profile"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -70,6 +71,11 @@ class App extends React.Component {
             exact
             path="/userspage"
             component={UsersPage}
+            />
+          <Route
+            exact
+            path="/registrationpage"
+            component={RegistrationPage}
           />
           <Route
             exact
