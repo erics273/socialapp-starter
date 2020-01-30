@@ -57,7 +57,7 @@ class UserForm extends Component {
             .then((response) => {
                 console.log(response)
 
-                this.getMessages();
+                // this.getMessages();
 
                 this.setState({
                     messageError: "",
