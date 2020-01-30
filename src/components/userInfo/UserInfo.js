@@ -228,7 +228,7 @@ class UserInfo extends React.Component {
                     onClick={this.togglePasswordDialog}
                     variant="contained"
                   >
-                    Submit Changes
+                    Submit
                   </Button>
                 </CardActions>
 
@@ -244,7 +244,7 @@ class UserInfo extends React.Component {
                     className={classes.button}
                     startIcon={<DeleteIcon />}
                   >
-                    Delete Account
+                  delete  
                   </Button>
                 </CardActions>
               </React.Fragment>
