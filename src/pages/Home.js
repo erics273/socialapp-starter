@@ -1,15 +1,61 @@
 import React from "react";
-import LoginForm from "../components/LoginForm";
-import Menu from "../components/Menu";
+import Menu from "../components/menu/Menu";
 import { userIsNotAuthenticated } from "../HOCs";
+import SignupForm from "../components/signupForm/SignupForm";
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ChatIcon from '@material-ui/icons/Chat';
+import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
+import "./Home.css"
+
 
 class Home extends React.Component {
   render() {
     return (
       <>
-        <Menu />
-        <h2>Your favorite microblogging platform</h2>
-        <LoginForm />
+
+        <Menu /> 
+        
+        <div className="description">
+          <h1>Welcome to Kritter!</h1>
+        <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <FavoriteIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="Follow your interests"/>
+      </ListItem>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <ChatIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="See what people are saying"/>
+      </ListItem>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <FormatQuoteIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="Share what's new on your timeline"/>
+      </ListItem>
+      </div>
+        {/* <div className="description">
+          <br />
+          <ul>
+            <li>Follow your interests</li>
+            <li>See what people are saying</li>
+            <li>Share what's new on your timeline</li>
+            <br />
+          </ul>
+        </div> */}
+        <SignupForm />
       </>
     );
   }
