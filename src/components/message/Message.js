@@ -24,14 +24,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function refreshPage() {
-  setTimeout(window.location.reload(), 1000);
-}
+
 
 export default function Message(props) {
   let liked = false;
 
   const classes = useStyles();
+
+  const handleSubmit = (e) =>{
+
+  }
 
   const handleLike = event => {
 
@@ -71,7 +73,7 @@ export default function Message(props) {
 
 
             primary={
-              <Link to={"/profile/" + props.username} onClick={refreshPage}>
+              <Link to={"/profile/" + props.username} onClick={handleSubmit}>
                 {props.username}
               </Link>
             }

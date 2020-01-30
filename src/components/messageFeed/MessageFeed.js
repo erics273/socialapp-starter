@@ -10,7 +10,7 @@ import { withStyles } from "@material-ui/core/styles";
 const styles = theme => ({
   root: {
     width: "100%",
-    maxWidth: "50%",
+    maxWidth: "32%",
     backgroundColor: "rgb (233, 208, 144)"
   },
   inline: {
@@ -45,7 +45,7 @@ class MessageFeed extends Component {
     });
 
     return (
-      <div>
+      <div className="messageFeed">
         <h1>Comments</h1>
         <List className={classes.root}>{messages}</List>
       </div>

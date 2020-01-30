@@ -21,11 +21,13 @@ import { withStyles } from "@material-ui/core/styles";
 
 const styles = {
   card: {
+    width: "32%",
     maxWidth: "50%",
-    background: "burlywood"
+    background: "burlywood",
+    marginLeft: "3%"
   },
   media: {
-    height: 140
+    height: 140,
   }
 };
 
@@ -191,6 +193,7 @@ class UserInfo extends React.Component {
                     displayName="outlined-helperText"
                     name="displayName"
                     label="Display Name"
+                    fullWidth
                     defaultValue={this.state.userData.displayName}
                     variant="filled"
                   />

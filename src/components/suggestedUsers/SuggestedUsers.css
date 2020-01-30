@@ -2,11 +2,11 @@
     position: absolute;
     display: flex;
     justify-content: center;
-    left: 55%;
+    left: 65%;
     top: 25%;
-    width: 40%;
+    width: 30%;
     min-width: 275px;
-    background: olive;
+    background: burlywood !important;
 }
 
 .title {
