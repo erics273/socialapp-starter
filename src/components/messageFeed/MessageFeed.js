@@ -11,7 +11,7 @@ const styles = theme => ({
   root: {
     width: "100%",
     maxWidth: "50%",
-    backgroundColor: "burlywood"
+    backgroundColor: "rgb (233, 208, 144)"
   },
   inline: {
     display: "inline"

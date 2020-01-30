@@ -31,3 +31,7 @@ width: 100px;
 .MuiTypography-h6 {
   font-size: .25rem !important;
 }
+
+.MuiAvatar-colorDefault {
+  background-color: rgb(100, 155, 100) !important
+}
