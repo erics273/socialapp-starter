@@ -27,4 +27,8 @@
     color: black;
 }
 
+.MuiInput-underline:after {
+    border-bottom: black !important;
+}
+
 
