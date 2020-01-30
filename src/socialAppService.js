@@ -28,7 +28,11 @@ class SocialAppService {
     }
 
     updateUser(username, data) {
-        return this.client.patch(this.url + this.endpoint.users + username, data)
+        return this.client.patch(this.url + this.endpoint.users + username, data, {
+            headers: {
+                Authorization: "Bearer " + this.token.result.token
+            }
+        })
     }
 
     //PICTURE DATA SIZE IS RESTRICTED TO <= 200kb

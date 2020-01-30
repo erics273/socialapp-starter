@@ -33,7 +33,7 @@ class CreateMessage extends React.Component {
   render() {
     return (
       <form
-        className="createmessage"
+        className="createMessage"
         
         onSubmit={this.handleSubmit}
       >
@@ -41,11 +41,10 @@ class CreateMessage extends React.Component {
           <h2>Post Message</h2>
         </div>
         <TextField
-          required
           className="outlined-required"
           name="text"
           label="Write message"
-          variant="outlined"
+          variant="filled"
           value={this.state.formData.text}
           onChange={this.handleChange}
         />

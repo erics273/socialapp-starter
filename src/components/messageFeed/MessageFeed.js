@@ -10,8 +10,8 @@ import { withStyles } from "@material-ui/core/styles";
 const styles = theme => ({
   root: {
     width: "100%",
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper
+    maxWidth: "50%",
+    backgroundColor: "burlywood"
   },
   inline: {
     display: "inline"

@@ -6,6 +6,7 @@ import CreateMessage from "../components/createMessage/CreateMessage";
 import MessageFeed from "../components/messageFeed/MessageFeed";
 import SuggestedUsers from "../components/suggestedUsers/SuggestedUsers"
 import SocialAppService from "../socialAppService";
+import "./Profile.css"
 
 
 class Profile extends React.Component {
