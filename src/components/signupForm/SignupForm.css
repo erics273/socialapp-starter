@@ -8,8 +8,8 @@
     top: 200px;
     bottom: 300px;
     width: 400px;
-    height: 200px;
-    background-color: burlywood;
+    height: 250px;
+    /* background-color: burlywood; */
 }
 
 .submitButton {
@@ -24,6 +24,7 @@
 .h1Element {
     position: static;
     text-align: center;
+    color: black;
 }
 
 
