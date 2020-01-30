@@ -28,3 +28,6 @@ width: 100px;
  background-color: rgb(100, 155, 100) !important
 }
 
+.MuiTypography-h6 {
+  font-size: .25rem !important;
+}
