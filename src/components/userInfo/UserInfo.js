@@ -64,20 +64,16 @@ class UserInfo extends React.Component {
     event.preventDefault();
     this.togglePasswordDialog();
     const formData = this.fileUpload(this.state.picture);
-    this.client.setUserPicture(this.props.username, formData);
-    // .then
-    // //this is an attempt to make the picture change without refreshing the page
-    // // this.getCurrentUserPicture(),
-    // // this.setState({
-    // //   userPicture: this.state.picture
-    // // })
-    // ();
-
+    this.client.setUserPicture(this.props.username, formData).then(()=>{
+      this.getCurrentUserPicture()
+    })
+    
     const userDataRequest = {
       password: this.state.userData.password,
       about: this.state.userData.about,
       displayName: this.state.userData.displayName
     };
+  
     this.client.updateUser(this.props.username, userDataRequest);
     this.toggleUpdateUser();
   };
