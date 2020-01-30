@@ -10,6 +10,7 @@ import MessageForm from "./components/messageForm/MessageForm";
 import MessagePage from "./pages/MessagePage";
 import UserForm from "./components/userForm/UserForm";
 import UsersPage from "./pages/UsersPage";
+import UpdateUser from "./pages/UpdateUser";
 // import Profile from "./components/profile.js/Profile"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -57,7 +58,7 @@ class App extends React.Component {
           <Route
             exact
             path="/userForm"
-            component={UserForm}
+            component={UpdateUser}
           />
           <Route
             exact
