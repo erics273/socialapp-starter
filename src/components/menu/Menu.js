@@ -12,7 +12,7 @@ class Menu extends React.Component {
 
   handleLogout = event => {
     this.props.logout();
-    return <Redirect to={"/"} />
+    // return <Redirect to={"/"} />
   };
 
   render() {
