@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "./RegistrationForm.css";
 import blueService from "../../blueService";
+import Button from 'react-bootstrap/Button';
 
 
 
@@ -123,8 +124,10 @@ class Registration extends Component {
 
 
 
-
-                    <button>Submit Registration</button>
+                    <Button variant="primary" type="Submit Registration" >
+                        Submit Registration
+                    </Button>
+                    {/* <button>Submit Registration</button> */}
                 </form>
 
             </div>
