@@ -27,7 +27,7 @@ class Menu extends React.Component {
           {/*  bellow line no longer needed */}
           {/* <Nav.Link href="/messagepage/1">MessagePage</Nav.Link> */}
 
-          <Nav.Link href="/userspage">Userspage</Nav.Link>
+          <Nav.Link href="/userspage">Users</Nav.Link>
 
           <Nav.Link href="/userform">UserPage</Nav.Link>
 
