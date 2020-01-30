@@ -67,7 +67,7 @@ class BlueService {
     }
 
     postLike(messageID) {
-
+        // console.log(messageID)
         let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
 
         var config = {
@@ -75,7 +75,7 @@ class BlueService {
         };
 
         var bodyParameters = {
-            "messageID": messageID
+            "messageId": messageID
         }
 
         return this.client.post(this.url + "likes", bodyParameters, config)
