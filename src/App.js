@@ -10,6 +10,7 @@ import MessageForm from "./components/messageForm/MessageForm";
 import MessagePage from "./pages/MessagePage";
 import UserForm from "./components/userForm/UserForm";
 import UsersPage from "./pages/UsersPage";
+import MessagesFeed from "./pages/MessagesFeed";
 import UpdateUser from "./pages/UpdateUser";
 // import Profile from "./components/profile.js/Profile"
 
@@ -54,6 +55,11 @@ class App extends React.Component {
             exact
             path="/messagepage/:messageID"
             component={MessagePage}
+          />
+          <Route
+            exact
+            path="/messagesfeed"
+            component={MessagesFeed}
           />
           <Route
             exact
