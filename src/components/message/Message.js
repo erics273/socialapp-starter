@@ -24,15 +24,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function reload () {
-  window.location.reload()
-}
 
 function Message(props) {
   let liked = false;
-
+  
   const classes = useStyles();
-
+  
+  const reload = (e) => {
+    props.history.push("/profile/" + props.username )
+    window.location.reload()
+  }
   
 
   const handleLike = event => {
