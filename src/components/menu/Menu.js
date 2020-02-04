@@ -31,7 +31,7 @@ class Menu extends React.Component {
 
   render() {
     // new "menue"
-    console.log(this.props)
+    // console.log(this.props)
     let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
     if (this.state.redirect) {
             

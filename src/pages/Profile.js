@@ -66,6 +66,11 @@ class Profile extends React.Component {
 
     let deleteButton
 
+    // fix routing after logout
+    if(!(tempLoginInfo.result)){
+      return(<Menu isAuthenticated={this.props.isAuthenticated} />);
+    }
+
     if(this.props.match.params.username === tempLoginInfo.result.username){
       deleteButton = <Nav.Link href="/userform">Update User</Nav.Link>
     }
