@@ -1,9 +1,10 @@
 import React from "react";
 import Menu from "../components/menu/Menu";
-import { userIsAuthenticated } from "../HOCs";
+// import { userIsAuthenticated } from "../HOCs";
 import BlueService from "../blueService";
 import DisplayMessage from "../components/displayMessage/displayMessage";
 import DisplayLike from "../components/displayLike/DisplayLike";
+import { withAsyncAction } from "../HOCs";
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container'
@@ -117,19 +118,9 @@ class MessagePage extends React.Component {
                             likeButtonFunctionParameter={ButtonFunctionParameter}
                         />
 
-                        {/* <DisplayMessage
-                            key={this.state.dataMessages.messages[i].id}
-                            id={this.state.dataMessages.messages[i].id}
-                            message={this.state.dataMessages.messages[i].text}
-                            username={this.state.dataMessages.messages[i].username}
-                            date={this.state.dataMessages.messages[i].createdAt}
-                            likes={this.state.dataMessages.messages[i].likes.length}
-                            likeButtonFunction={ButtonFunction}
-                            likeButtonVarriant={ButtonVarriant}
-                            likeButtonFunctionParameter={ButtonFunctionParameter}
-                        /> */}
-
-                        {likeArray}
+                        <Container>
+                            {likeArray}
+                        </Container>
                     </Container>
                 </>
             );
@@ -143,4 +134,4 @@ class MessagePage extends React.Component {
 
 }
 
-export default userIsAuthenticated(MessagePage);
+export default withAsyncAction("auth", "logout")(MessagePage);

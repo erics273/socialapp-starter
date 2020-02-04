@@ -59,8 +59,8 @@ class UserForm extends Component {
             .then((response) => {
                 console.log(response)
 
-                let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
-                let loggedInUsername = tempLoginInfo.result.username;
+                // let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
+                // let loggedInUsername = tempLoginInfo.result.username;
 
 
                 console.log("hey i just did this thin%^&*")

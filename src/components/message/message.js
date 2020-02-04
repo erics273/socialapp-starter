@@ -22,7 +22,7 @@ class Message extends React.Component {
 
     getMultipleMessages() {
         return this.client.getMultipleMessages().then(result => {
-            console.log(result.data.messages)
+            // console.log(result.data.messages)
             this.setState({
                 dataMessages: result.data
             })
@@ -31,7 +31,7 @@ class Message extends React.Component {
 
     postLike = (messageID) => {
         return this.client.postLike(messageID).then(result => {
-            console.log(result.data.likes)
+            // console.log(result.data.likes)
             this.setState({
                 data: result.data
             })
@@ -57,9 +57,12 @@ class Message extends React.Component {
     }
 
     render() {
-        if (this.state.dataMessages.messages) {
+        // fixing logout
+        let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
 
-            let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
+        if (this.state.dataMessages.messages && tempLoginInfo.result) {
+
+            // let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
             let loggedInUsername = tempLoginInfo.result.username;
             let messageArray = [];
             let ButtonVarriant = "";
