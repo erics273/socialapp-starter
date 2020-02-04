@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./Message.css"
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -24,16 +24,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+function reload () {
+  window.location.reload()
+}
 
-
-export default function Message(props) {
+function Message(props) {
   let liked = false;
 
   const classes = useStyles();
 
-  const handleSubmit = (e) =>{
-
-  }
+  
 
   const handleLike = event => {
 
@@ -44,7 +44,6 @@ export default function Message(props) {
       if (like.username === userInfo.result.username) {
         liked = true
         likeId = like.id
-        // console.log(likeId)
       }
     }
 
@@ -73,7 +72,7 @@ export default function Message(props) {
 
 
             primary={
-              <Link to={"/profile/" + props.username} onClick={handleSubmit}>
+              <Link to={"/profile/" + props.username} onClick={reload}>
                 {props.username}
               </Link>
             }
@@ -101,3 +100,5 @@ export default function Message(props) {
     </div>
   );
 }
+
+export default withRouter(Message)

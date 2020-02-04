@@ -7,11 +7,17 @@ h2 {
 }
 
 .postButton {
-    display: flex;
-    /* flex-direction:; */
+    margin-left: 2%;
 }
 
 .MuiFormControl-root {
     width: 25%;
-    margin-left: 3% !important;
+}
+
+.MuiFilledInput-underline:after {
+    border-bottom: 2px solid saddlebrown !important;
+}
+
+.MuiFormLabel-root {
+    color: saddlebrown !important;
 }

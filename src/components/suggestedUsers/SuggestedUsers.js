@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import { render } from "react-dom";
 import { withRouter } from "react-router-dom";
 import SocialAppService from "../../socialAppService";
-import { withStyles } from "@material-ui/core/styles";
 import "./SuggestedUsers.css"
+import SuggestedUserCard from "../suggestedUserCard/SuggestedUserCard"
 
-
+import { withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -25,16 +24,23 @@ class SuggestedUsers extends Component {
     return (
       <Card className="card">
         <CardContent>
-          <Typography className="title" color="textSecondary" gutterBottom>
+          <Typography
+            className="title"
+            color="textSecondary"
+            gutterBottom
+          >
             Suggested Users
           </Typography>
-          <Divider variant="middle"/>
-
-
+          <Divider variant="middle" />
+          <SuggestedUserCard />
+          <SuggestedUserCard />
+          <SuggestedUserCard />
+          <SuggestedUserCard />
+          <SuggestedUserCard />
         </CardContent>
       </Card>
     );
   }
 }
 
-export default withRouter (SuggestedUsers);
+export default withRouter(SuggestedUsers);

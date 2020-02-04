@@ -16,8 +16,8 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import { withStyles } from "@material-ui/core/styles";
+import Box from '@material-ui/core/Box';
 
 const styles = {
   card: {
@@ -28,6 +28,12 @@ const styles = {
   },
   media: {
     height: 140,
+  },
+  dialog: {
+    backgroundColor: "burlywood"
+  },
+  dialogButtons: {
+    backgroundColor: "peru"
   }
 };
 
@@ -42,6 +48,7 @@ class UserInfo extends React.Component {
         picture: ""
       },
       userPicture: { config: "" },
+      profileImage: "",
       userData: {
         password: "",
         about: "",
@@ -58,25 +65,31 @@ class UserInfo extends React.Component {
   getCurrentUserPicture() {
     this.client
       .getUserPicture(this.props.username)
-      .then(response => this.setState({ userPicture: response }));
+      .then(response => this.setState({
+        userPicture: response,
+      })).then(() => this.setState({ profileImage: this.state.userPicture.config.url }))
   }
 
   handleSubmit = event => {
     event.preventDefault();
     this.togglePasswordDialog();
-    const formData = this.fileUpload(this.state.picture);
-    this.client.setUserPicture(this.props.username, formData).then(()=>{
-      this.getCurrentUserPicture()
-    })
-    
+
+    if (this.state.picture) {
+      const formData = this.fileUpload(this.state.picture);
+      this.client.setUserPicture(this.props.username, formData).then(() => {
+        this.getCurrentUserPicture()
+      })
+    }
+
     const userDataRequest = {
       password: this.state.userData.password,
       about: this.state.userData.about,
       displayName: this.state.userData.displayName
     };
-  
+    
     this.client.updateUser(this.props.username, userDataRequest);
-    this.toggleUpdateUser();
+
+    this.toggleUpdateUser()
   };
 
   onChange = e => {
@@ -84,12 +97,13 @@ class UserInfo extends React.Component {
     userData[e.target.name] = e.target.value;
 
     let pictureSet = this.state.formData.picture;
-    if (e.target.files != undefined) {
+    if (e.target.files !== undefined && e.target.files !== null) {
       pictureSet = e.target.files[0];
     }
 
     this.setState({
-      picture: pictureSet,
+      picture: pictureSet || this.state.formData.picture,
+      profileImage: pictureSet.name || this.state.profileImage,
       userData
     });
   };
@@ -111,20 +125,21 @@ class UserInfo extends React.Component {
 
   getUserData() {
     return this.client.getUser(this.props.username).then(result => {
-      const capsDisplayName = result.data.user.displayName.toUpperCase();
+      const capsDisplayName = result.data.user.displayName;
       this.setState({
         userData: {
           password: "",
           about: result.data.user.about,
-          displayName: capsDisplayName
+          displayName: capsDisplayName,
         }
       });
-    });
+    })
   }
 
   toggleUpdateUser = () => {
     this.setState({
-      updateUser: !this.state.updateUser
+      updateUser: !this.state.updateUser,
+      profileImage: this.state.userPicture.config.url
     });
   };
 
@@ -138,7 +153,6 @@ class UserInfo extends React.Component {
     this.setState({
       updateUser: true
     });
-    this.getUserData();
   };
 
   componentDidMount() {
@@ -148,6 +162,7 @@ class UserInfo extends React.Component {
 
   render() {
     const { classes } = this.props;
+
     return (
       <React.Fragment>
         <Dialog
@@ -155,24 +170,27 @@ class UserInfo extends React.Component {
           onClose={this.togglePasswordDialog}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">Password</DialogTitle>
-          <DialogContent>
+          <DialogContent className={classes.dialog}>
             <DialogContentText>Please enter a password</DialogContentText>
-            <TextField
-              required
-              onChange={this.onChangePass}
-              name="password"
-              label="Password"
-              type="password"
-              autoComplete="current-password"
-              variant="filled"
-            />
+            <form onSubmit={this.handleSubmit}>
+              <TextField
+                required
+                autoFocus
+                onChange={this.onChangePass}
+                name="password"
+                label="Password"
+                type="password"
+                autoComplete="current-password"
+                variant="filled"
+                fullWidth
+              />
+            </form>
           </DialogContent>
-          <DialogActions>
-            <Button onClick={this.togglePasswordDialog} color="primary">
+          <DialogActions className={classes.dialogButtons}>
+            <Button onClick={this.togglePasswordDialog} color="textPrimary">
               Cancel
             </Button>
-            <Button onClick={this.handleSubmit} color="primary">
+            <Button onClick={this.handleSubmit} color="textPrimary">
               Confirm
             </Button>
           </DialogActions>
@@ -180,10 +198,14 @@ class UserInfo extends React.Component {
 
         <Card className={classes.card}>
           <CardActionArea onChange={this.onChange}>
-            <img src={this.state.userPicture.config.url} />
+            <img src={this.state.profileImage} id="profileImg" alt="" />
             {this.state.updateUser && (
               <form>
-                <input name="picture" type="file" />
+                <input
+                  name="picture"
+                  type="file"
+                  accept="image/png, image/jpeg, image/gif"
+                />
               </form>
             )}
             <CardContent onClick={this.handleUpdate}>
@@ -220,31 +242,36 @@ class UserInfo extends React.Component {
 
             {this.state.updateUser && (
               <React.Fragment>
-                <CardActions>
-                  <Button
-                    size="medium"
-                    onClick={this.togglePasswordDialog}
-                    variant="contained"
-                  >
-                    Submit
-                  </Button>
-                </CardActions>
+                <Box display="flex" justifyContent="center">
+                  <CardActions >
+                    <Button onClick={this.toggleUpdateUser} size="large">
+                      Cancel
+                    </Button>
 
-                <CardActions>
-                  <Button onClick={this.toggleUpdateUser} size="small">
-                    Cancel
-                  </Button>
+                    <Button
+                      size="large"
+                      onClick={this.togglePasswordDialog}
+                      variant="contained"
+                    >
+                      Submit
+                    </Button>
+                  </CardActions>
+                </Box>
 
-                  <Button
-                    onClick={this.handleDelete}
-                    variant="contained"
-                    color="secondary"
-                    className={classes.button}
-                    startIcon={<DeleteIcon />}
-                  >
-                  delete  
-                  </Button>
-                </CardActions>
+                <Box display="flex" justifyContent="center">
+                  <CardActions>
+                    <Button
+                      onClick={this.handleDelete}
+                      variant="contained"
+                      color="secondary"
+                      size="small"
+                      className={classes.button}
+                      startIcon={<DeleteIcon />}
+                    >
+                      delete
+                    </Button>
+                  </CardActions>
+                </Box>
               </React.Fragment>
             )}
           </CardActionArea>

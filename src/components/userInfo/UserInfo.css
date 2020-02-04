@@ -18,10 +18,8 @@
    /* border-radius: 90px !important;*/
     display: inline-block;
     text-align: center;
-    
 }
 
-
-
-
-
+#profileImg {
+    margin-top: 3%
+}
