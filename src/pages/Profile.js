@@ -10,6 +10,7 @@ import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Nav from 'react-bootstrap/Nav';
+import { userIsAuthenticated } from "../HOCs";
 
 class Profile extends React.Component {
 
@@ -122,4 +123,4 @@ class Profile extends React.Component {
 }
 
 // export default withAsyncAction("auth", "logout")(Profile);
-export default (Profile);
+export default userIsAuthenticated(Profile);

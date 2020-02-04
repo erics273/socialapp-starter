@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Menu from "../components/menu/Menu";
 import Registration from '../components/registration/Registration';
 
+import Container from 'react-bootstrap/Container'
 // import Button from 'react-bootstrap/Button';
 
 
@@ -33,8 +34,10 @@ class RegistrationPage extends Component {
                 {/* <Button variant="primary" type="Submit Registration" >
                         Submit Registration
                     </Button> */}
+                    <Container>
+                        <br/>
                     <Registration/>
-               
+                    </Container>
             </>
             
         );

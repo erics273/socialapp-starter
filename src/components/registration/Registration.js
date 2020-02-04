@@ -12,6 +12,7 @@ class Registration extends Component {
         this.client = new blueService();
         this.state = {
             redirect: false,
+            error: false,
             formData: {
                 userName: '',
                 displayName: '',
@@ -47,6 +48,9 @@ class Registration extends Component {
                 //     }
                 // });
             }).catch((error) => {
+                this.setState({
+                    error: true,
+                })
                 console.log(error)
             });
 
@@ -95,6 +99,16 @@ class Registration extends Component {
             return (<Redirect to={"/"} />)
         }
 
+
+        let errorMessage
+
+        if(this.state.error){
+            errorMessage = <div>Wups Something Went Wrong</div>
+        }
+        else{
+            errorMessage = <div></div>
+        }
+
         return (
             <div className="Registration">
 
@@ -133,11 +147,13 @@ class Registration extends Component {
                         />
                     </div>
 
-
+                    <br/>
 
                     <Button variant="primary" type="Submit Registration" >
                         Submit Registration
                     </Button>
+                    <br/>
+                    {errorMessage}
                     {/* <button>Submit Registration</button> */}
                 </form>
 
