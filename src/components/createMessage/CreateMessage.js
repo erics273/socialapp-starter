@@ -1,8 +1,10 @@
 import React from "react";
-import SocialAppService from "../../socialAppService";
-import TextField from '@material-ui/core/TextField';
 import "./CreateMessage.css"
 
+import SocialAppService from "../../socialAppService";
+import TextField from '@material-ui/core/TextField';
+import Button from "@material-ui/core/Button";
+import Box from '@material-ui/core/Box';
 
 
 class CreateMessage extends React.Component {
@@ -25,39 +27,41 @@ class CreateMessage extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     this.client.createMessage(this.state.formData).then(result => {
-        this.props.getMessageHandler();
-        this.setState({formData: {text: ""}})
-      });
+      this.props.getMessageHandler();
+      this.setState({ formData: { text: "" } })
+    });
   };
 
   render() {
     return (
       <form
         className="createMessage"
-        
+
         onSubmit={this.handleSubmit}
       >
         <div className="h2Element">
           <h2>Post Message</h2>
         </div>
-        <TextField
-          className="outlined-required"
-          name="text"
-          label="Write message"
-          variant="filled"
-          value={this.state.formData.text}
-          onChange={this.handleChange}
-        />
+        <Box display="flex" justifyContent="flex-start">
+          <TextField
+            className="outlined-required"
+            name="text"
+            label="Write message"
+            variant="filled"
+            value={this.state.formData.text}
+            autoComplete="off"
+            onChange={this.handleChange}
+          />
 
-        <br />
-        <br />
-
-        <br />
-        <div>
-          <button className="postButton" type="submit">
+          <Button
+            size="large"
+            className="postButton"
+            type="submit"
+            variant="contained"
+          >
             Post
-          </button>
-        </div>
+          </Button>
+        </Box>
       </form>
     );
   }

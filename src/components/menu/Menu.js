@@ -40,7 +40,7 @@ function Menu(props) {
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <Link to="/">
-              <img src={logo} id="title" ></img>
+              <img src={logo} id="title" alt="logo"></img>
             </Link>
           </Typography>
           {props.isAuthenticated && (

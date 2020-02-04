@@ -2,7 +2,6 @@ import React from "react";
 import Spinner from "react-spinkit";
 import { withAsyncAction } from "../../HOCs";
 import "./LoginForm.css";
-import TextField from '@material-ui/core/TextField';
 import InputBase from '@material-ui/core/InputBase'
 import { fade, withStyles } from '@material-ui/core/styles';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
