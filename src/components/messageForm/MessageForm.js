@@ -55,7 +55,10 @@ class MessageForm extends Component {
             .then((response) => {
                 console.log(response)
 
-                this.getMessages();
+                // likely get rid of
+                // this.getMessages();
+
+                this.props.refreshMessages();
 
                 this.setState({
                     messageError: "",

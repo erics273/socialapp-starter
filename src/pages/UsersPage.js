@@ -1,10 +1,11 @@
 import React from "react";
 import Menu from "../components/menu/Menu";
-import { userIsAuthenticated } from "../HOCs";
+// import { userIsAuthenticated } from "../HOCs";
 import BlueService from "../blueService"
-import ProfileDisplay from "../components/profileDisplay/ProfileDisplay"
-import Message from "../components/message/message"
-import MessageForm from "../components/messageForm/MessageForm";
+// import ProfileDisplay from "../components/profileDisplay/ProfileDisplay"
+// import Message from "../components/message/message"
+// import MessageForm from "../components/messageForm/MessageForm";
+import { withAsyncAction } from "../HOCs";
 
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
@@ -26,7 +27,7 @@ class Profile extends React.Component {
 
   getMultipleUsers() {
     return this.client.getUsers().then(result => {
-      console.log(result.data.users)
+      // console.log(result.data.users)
       this.setState({
         dataUsers: result.data.users
       })
@@ -45,7 +46,7 @@ class Profile extends React.Component {
 
     let usersArray = [];
     for (let i = 0; i < this.state.dataUsers.length; i++) {
-      console.log(this.state.dataUsers[i].username)
+      // console.log(this.state.dataUsers[i].username)
       usersArray.push(
         <div key={i}>
          
@@ -88,4 +89,4 @@ class Profile extends React.Component {
 
 }
 
-export default userIsAuthenticated(Profile);
+export default withAsyncAction("auth", "logout")(Profile);

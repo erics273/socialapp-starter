@@ -2,7 +2,7 @@ import React from "react";
 import Card from 'react-bootstrap/Card'
 import Octicon, {Thumbsup} from '@primer/octicons-react'
 
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
 
 function DisplayMessage(props) {
@@ -25,13 +25,13 @@ function DisplayMessage(props) {
           </Card.Text>
         </Card.Body>
         <Card.Footer>
-          {props.date}
+          {/* {props.date} */}
 
-          Likes
+          {"Likes: "}
 
 
           {props.likes}
-
+          {"  "}
           <Button onClick={() => props.likeButtonFunction(props.likeButtonFunctionParameter)} variant={props.likeButtonVarriant}><Octicon icon={Thumbsup}/></Button>
 
         </Card.Footer>

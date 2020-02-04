@@ -3,7 +3,7 @@ import "./RegistrationForm.css";
 import blueService from "../../blueService";
 import Button from 'react-bootstrap/Button';
 
-
+import { Redirect } from "react-router-dom";    
 
 class Registration extends Component {
     //set our initial state and set up our service as this.client on this component
@@ -11,7 +11,8 @@ class Registration extends Component {
         super(props);
         this.client = new blueService();
         this.state = {
-            submitted: false,
+            redirect: false,
+            error: false,
             formData: {
                 userName: '',
                 displayName: '',
@@ -36,14 +37,20 @@ class Registration extends Component {
                 console.log(response)
 
                
-
                 this.setState({
-                    messageError: "",
-                    formUser: {
-                        text: "",
-                    }
-                });
+                    redirect: true,
+                })
+                // take this out
+                // this.setState({
+                //     messageError: "",
+                //     formUser: {
+                //         text: "",
+                //     }
+                // });
             }).catch((error) => {
+                this.setState({
+                    error: true,
+                })
                 console.log(error)
             });
 
@@ -86,6 +93,22 @@ class Registration extends Component {
 
 
     render() {
+
+        if (this.state.redirect) {
+            
+            return (<Redirect to={"/"} />)
+        }
+
+
+        let errorMessage
+
+        if(this.state.error){
+            errorMessage = <div>Wups Something Went Wrong</div>
+        }
+        else{
+            errorMessage = <div></div>
+        }
+
         return (
             <div className="Registration">
 
@@ -104,7 +127,9 @@ class Registration extends Component {
                     <div>
                         <label htmlFor=""> Password</label>
                         <input
-                            type="text"
+                            // changed to
+                            type="password"
+                            // type="text"
                             name="password"
                             value={this.state.formData.password}
                             onChange={this.handleChange}
@@ -122,11 +147,13 @@ class Registration extends Component {
                         />
                     </div>
 
-
+                    <br/>
 
                     <Button variant="primary" type="Submit Registration" >
                         Submit Registration
                     </Button>
+                    <br/>
+                    {errorMessage}
                     {/* <button>Submit Registration</button> */}
                 </form>
 

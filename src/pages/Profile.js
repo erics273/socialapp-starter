@@ -1,15 +1,17 @@
 import React from "react";
 import Menu from "../components/menu/Menu";
-import { userIsAuthenticated } from "../HOCs";
+// import { userIsAuthenticated } from "../HOCs";
 import BlueService from "../blueService"
 import ProfileDisplay from "../components/profileDisplay/ProfileDisplay"
 import Message from "../components/message/message"
-import MessageForm from "../components/messageForm/MessageForm";
-
+// import MessageForm from "../components/messageForm/MessageForm";
+// import { withAsyncAction } from "../HOCs";
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Nav from 'react-bootstrap/Nav';
+import { userIsAuthenticated } from "../HOCs";
+
 class Profile extends React.Component {
 
   constructor(props) {
@@ -23,13 +25,13 @@ class Profile extends React.Component {
   }
 
   getProfile() {
-    console.log(this.props.match.params.username)
+    // console.log(this.props.match.params.username)
     return this.client.getUserName(this.props.match.params.username)
     .then(result => {
 
-      console.log(result.data.user.username)
-      console.log(result.data.user.displayName)
-      console.log(result.data.user.about)
+      // console.log(result.data.user.username)
+      // console.log(result.data.user.displayName)
+      // console.log(result.data.user.about)
 
 
       this.setState({
@@ -61,7 +63,22 @@ class Profile extends React.Component {
 
   render() {
     let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
-    console.log(tempLoginInfo);
+    // console.log(tempLoginInfo);
+
+    let deleteButton
+
+    // fix routing after logout
+    if(!(tempLoginInfo.result)){
+      return(<Menu isAuthenticated={this.props.isAuthenticated} />);
+    }
+
+    if(this.props.match.params.username === tempLoginInfo.result.username){
+      deleteButton = <Nav.Link href="/userform">Update User</Nav.Link>
+    }
+    else{
+      deleteButton = <div></div>
+    }
+
     return (
 
       <>
@@ -76,16 +93,17 @@ class Profile extends React.Component {
               displayName={this.state.dataUser.displayName}
               about={this.state.dataUser.about}
             />
-            <h2>Profile</h2>
+            
             {/* <button onClick={this.deleteUser}>Update User
             <Nav.Link href="/" onSelect={this.deleteUser}></Nav.Link> </button> */}
-            <Nav.Link href="/userform">Update User</Nav.Link>
+            {/* <Nav.Link href="/userform">Update User</Nav.Link> */}
+            {deleteButton}
            
 
           </Col>
           <Col>
           <br/>
-            <MessageForm/>
+            {/* <MessageForm/> */}
             <br/>
             <Message
               user = {this.props.match.params.username}
@@ -104,4 +122,5 @@ class Profile extends React.Component {
 
 }
 
+// export default withAsyncAction("auth", "logout")(Profile);
 export default userIsAuthenticated(Profile);

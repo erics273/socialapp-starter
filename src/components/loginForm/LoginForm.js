@@ -3,8 +3,14 @@ import Spinner from "react-spinkit";
 import { withAsyncAction } from "../../HOCs";
 import "./LoginForm.css";
 
+import Nav from 'react-bootstrap/Nav';
+
 class LoginForm extends React.Component {
-  state = { username: "", password: "" };
+  state = {
+    
+    username: "",
+    password: "",
+  };
 
   handleLogin = e => {
     e.preventDefault();
@@ -35,12 +41,15 @@ class LoginForm extends React.Component {
             required
             onChange={this.handleChange}
           />
+          <br/>
           <button type="submit" disabled={loading}>
             Login
           </button>
         </form>
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
+        <br/>
+        <Nav.Link href={"/registrationpage"}>New Inker</Nav.Link>
       </React.Fragment>
     );
   }

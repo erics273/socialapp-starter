@@ -1,10 +1,12 @@
 import React from "react";
 import DisplayMessage from '../components/displayMessage/displayMessage'
 import BlueService from '../blueService';
+import MessageForm from '../components/messageForm/MessageForm';
+import { withAsyncAction } from "../HOCs";
 
 import Container from "react-bootstrap/Container";
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+// import Form from 'react-bootstrap/Form'
+// import Button from 'react-bootstrap/Button'
 
 import Menu from "../components/menu/Menu";
 
@@ -21,6 +23,7 @@ class MessagesFeed extends React.Component {
         };
     }
 
+    // probably get rid of
     submitMessageStrap = (event) => {
         event.preventDefault();
 
@@ -46,6 +49,7 @@ class MessagesFeed extends React.Component {
         
     }
 
+    // probably get rid of
     handleChangeMessageStrap = (event) => {
         // console.log(event.target.id);
         // console.log(event.target.value);
@@ -54,9 +58,12 @@ class MessagesFeed extends React.Component {
         this.setState({ formMessage });
     }
 
+    refreshMessages = () => {
+        this.getMultipleMessages()
+    }
 
 
-    getMultipleMessages() {
+    getMultipleMessages = () => {
         return this.client.getMultipleMessages().then(result => {
             // console.log(result.data.messages)
             this.setState({
@@ -168,18 +175,20 @@ class MessagesFeed extends React.Component {
 
                         <br />
 
-                        <Form onSubmit={this.submitMessageStrap}>
+                        {/* <Form onSubmit={this.submitMessageStrap}>
 
                             <Form.Group controlId="message">
                                 {/* <Form.Label>Ink</Form.Label> */}
-                                <Form.Control value={this.state.formMessage.message} onChange={this.handleChangeMessageStrap} placeholder="Ink" />
+                                {/* <Form.Control value={this.state.formMessage.message} onChange={this.handleChangeMessageStrap} placeholder="Ink" /> */}
 
-                            </Form.Group>
+                            {/* </Form.Group>
                             <Button variant="primary" type="submit">
                                 Spill Ink
                             </Button>           
 
-                        </Form>
+                        </Form> */}
+
+                        <MessageForm refreshMessages={this.getMultipleMessages}/>
 
                         <br />
 
@@ -202,4 +211,4 @@ class MessagesFeed extends React.Component {
 
 
 
-export default MessagesFeed;
+export default withAsyncAction("auth", "logout")(MessagesFeed);

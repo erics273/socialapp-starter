@@ -51,16 +51,16 @@ class UserForm extends Component {
     submitMessageStrap = (event) => {
         event.preventDefault();
 
-        console.log(this.state.formUpdate.about);
-        console.log(this.state.formUpdate.name);
-        console.log(this.state.formUpdate.password);
+        // console.log(this.state.formUpdate.about);
+        // console.log(this.state.formUpdate.name);
+        // console.log(this.state.formUpdate.password);
 
         this.client.updateUser(this.state.formUpdate.about, this.state.formUpdate.name, this.state.formUpdate.password)
             .then((response) => {
                 console.log(response)
 
-                let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
-                let loggedInUsername = tempLoginInfo.result.username;
+                // let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
+                // let loggedInUsername = tempLoginInfo.result.username;
 
 
                 console.log("hey i just did this thin%^&*")
@@ -79,8 +79,8 @@ class UserForm extends Component {
     }
 
     handleChangeMessageStrap = (event) => {
-        console.log(event.target.id);
-        console.log(event.target.value);
+        // console.log(event.target.id);
+        // console.log(event.target.value);
         let formUpdate = this.state.formUpdate;
         formUpdate[event.target.id] = event.target.value;
         this.setState({ formUpdate });
@@ -89,7 +89,7 @@ class UserForm extends Component {
     handleChangeMessage = (event) => {
         let formUpdate = this.state.formUpdate;
         formUpdate[event.target.name] = event.target.value;
-        console.log(formUpdate[event.target.name]);
+        // console.log(formUpdate[event.target.name]);
         this.setState({ formUpdate });
     }
 
@@ -121,7 +121,7 @@ class UserForm extends Component {
 
                     <Form.Group controlId="password">
                         <Form.Label>New Password</Form.Label>
-                        <Form.Control onChange={this.handleChangeMessageStrap} placeholder="Ink" />
+                        <Form.Control type="password" onChange={this.handleChangeMessageStrap} placeholder="Ink" />
                         <Form.Text className="text-muted">
                             New Ink
                             </Form.Text>
