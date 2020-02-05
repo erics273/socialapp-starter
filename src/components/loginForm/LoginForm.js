@@ -27,6 +27,15 @@ class LoginForm extends React.Component {
       <React.Fragment>
         <form id="login-form" onSubmit={this.handleLogin}>
           <label htmlFor="username">Username</label>
+
+          {/* 
+          
+          ECS: you should be binding the value from state to the appropriate input
+
+          e.g.
+          value={this.state.username}
+
+          */}
           <input
             type="text"
             name="username"
@@ -49,6 +58,13 @@ class LoginForm extends React.Component {
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
         <br/>
+        {/* 
+        
+        ECS: you should be using <Link> here from react-router-dom to 
+        naviagate links through the router and not make a new request
+        reloading your app
+
+        */}
         <Nav.Link href={"/registrationpage"}>New Inker</Nav.Link>
       </React.Fragment>
     );
