@@ -1,3 +1,11 @@
+/*
+
+ECS: I wold consider revisiting how you are redirecting after logout.
+This functionality is already built in if you lever the HOC's. Look at the
+code in the original starter
+
+*/
+
 import React from "react";
 import { Redirect } from "react-router-dom";
 import "./Menu.css";
@@ -44,6 +52,13 @@ class Menu extends React.Component {
         <Navbar bg="primary" >
           <Navbar.Brand>Blue Ink</Navbar.Brand>
           <Nav className="mr-auto">
+            {/* 
+        
+            ECS: you should be using <Link> here from react-router-dom to 
+            naviagate links through the router and not make a new request
+            reloading your app
+
+            */}
             {/* <Nav.Link href="/message">Message</Nav.Link> */}
             <Nav.Link href={"/"}>Home</Nav.Link>
             <Nav.Link href={"/profile/" + loggedInUsername}>Profile</Nav.Link>

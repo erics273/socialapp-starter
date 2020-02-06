@@ -57,9 +57,14 @@ class Message extends React.Component {
     }
 
     render() {
+        // ECS: Not sure why we need this, we are most like doing something
+        //      wrong somewhere else
         // fixing logout
         let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
 
+        //ECS: The logic seems a bit complex for the problem it's solving
+        //     consider breaking the loop after the first time you find a 
+        //     like mathcing the user.
         if (this.state.dataMessages.messages && tempLoginInfo.result) {
 
             // let tempLoginInfo = JSON.parse(localStorage.getItem("login"));
@@ -89,7 +94,8 @@ class Message extends React.Component {
                     ButtonVarriant = "outline-secondary"
                     ButtonFunctionParameter = this.state.dataMessages.messages[i].id
                 }
-
+                //  ECS: I am not sure if this logic is needed. It seems to be adding
+                //       the same data to the array regardless of whos post it is
                 // console.log(this.props.user)
                 if(this.props.user){
                     if(this.props.user === this.state.dataMessages.messages[i].username){

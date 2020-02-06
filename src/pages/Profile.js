@@ -67,12 +67,25 @@ class Profile extends React.Component {
 
     let deleteButton
 
+    /*
+
+    ECS: Not sure what this is doing here. It does not feel right to have
+    a return here. You are also already rendering the menu below
+
+    */
     // fix routing after logout
     if(!(tempLoginInfo.result)){
       return(<Menu isAuthenticated={this.props.isAuthenticated} />);
     }
 
     if(this.props.match.params.username === tempLoginInfo.result.username){
+     /* 
+        
+        ECS: you should be using <Link> here from react-router-dom to 
+        naviagate links through the router and not make a new request
+        reloading your app
+
+        */
       deleteButton = <Nav.Link href="/userform">Update User</Nav.Link>
     }
     else{

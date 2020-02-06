@@ -32,6 +32,11 @@ class App extends React.Component {
             path="/profile/:username"
             component={Profile}
           />
+          {/* 
+            ECS: Every page you route to should live in the pages folder
+                here it seems you are treating a component both as a page and
+                a child of another component. Potential for refactor here
+          */}
           <Route
             exact
             path="/message"
@@ -42,11 +47,19 @@ class App extends React.Component {
             path="/profile"
             component={Profile}
           />
+          {/* 
+            ECS: Every page you route to should live in the pages folder
+                here it seems you are treating a component as a page
+          */}
           <Route
             exact
             path="/registration"
             component={Registration}
           />
+          {/* 
+            ECS: Every page you route to should live in the pages folder
+                here it seems you are treating a component as a page
+          */}
           <Route
             exact
             path="/messageform"
