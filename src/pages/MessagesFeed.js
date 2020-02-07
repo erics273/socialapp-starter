@@ -201,8 +201,9 @@ class MessagesFeed extends React.Component {
         }
         else {
             return (
-                <div>
-                </div>
+                <>
+                    <Menu isAuthenticated={this.props.isAuthenticated} />
+                </>
             )
         }
     }

@@ -64,7 +64,7 @@ class Profile extends React.Component {
 
 
     return (
-      <Card border="primary" >
+      // <Card border="primary" >
 
 
         <>
@@ -80,7 +80,7 @@ class Profile extends React.Component {
             </Row>
           </Container>
         </>
-      </Card>
+      // </Card>
 
     );
   }
