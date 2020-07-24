@@ -1,0 +1,37 @@
+#menu {
+  background-color: #ffdf46;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+  border-radius: 1em;
+}
+
+#menu-links {
+  display: flex;
+  padding-left: 1em;
+  color: white;
+}
+
+#menu-links a {
+  padding-right: 0.5em;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#title {
+width: 100px;
+}
+
+.MuiAppBar-colorPrimary{
+ background-color: rgb(100, 155, 100) !important
+}
+
+.MuiTypography-h6 {
+  font-size: .25rem !important;
+}
+
+.MuiAvatar-colorDefault {
+  background-color: rgb(100, 155, 100) !important
+}

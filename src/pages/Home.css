@@ -1,0 +1,29 @@
+html {
+    background-color: rgb(233, 208, 144) !important; 
+
+}
+.description {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: 100px;
+}
+
+.MuiTypography-body1 {
+    font-weight: bold !important; 
+    font-size: 22px !important;
+    
+}
+/* 
+.MuiAvatar-colorDefault {
+    background-color: rgb(233, 208, 144) !important;
+} */
+ 
+
+
+
+

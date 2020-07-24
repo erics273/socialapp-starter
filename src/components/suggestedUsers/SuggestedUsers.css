@@ -1,0 +1,16 @@
+.card {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 55%;
+    top: 25%;
+    width: 40%;
+    min-width: 275px;
+    background: olive;
+}
+
+.title {
+    display: flex;
+    font-weight: bold;
+}
+
