@@ -1,22 +1,15 @@
 ## Overview
 
-You will be working in teams to make a clone of a common [micro-blogging](https://en.wikipedia.org/wiki/Microblogging) platform. You will be given a back-end API for you to form your front-end application around. The API will include endpoints relating to authentication, users, messages, and likes. Your project must incorporate a majority of the endpoints given in the API.
-
-A portion of your grade will be based on your team-working ability. Please see this document for guidelines:
-
-[https://docs.google.com/document/d/1SmfHAwjDHVRmcXyoF1LsWU5OpOC6ok5L-1sKakPQJjM/edit?usp=sharing](https://docs.google.com/document/d/1SmfHAwjDHVRmcXyoF1LsWU5OpOC6ok5L-1sKakPQJjM/edit?usp=sharing)
+You will be working in teams to build a small social media site. You will be given a back-end API for you to form your front-end application around. The API will include endpoints relating to authentication, users, messages, and likes. Your project must incorporate a majority of the endpoints given in the API.
 
 You will also be following the SCRUM process and although everyone will be a developer and individual contributor your team should account for the roles of Product Owner, Scrum Master, and QA Tester. Please see this document for more details:
-
-[https://docs.google.com/document/d/1k9kMzUTTIMKhR_SciLpi87k5CeMMcSjdQHUyo8hX42Y/edit](https://docs.google.com/document/d/1k9kMzUTTIMKhR_SciLpi87k5CeMMcSjdQHUyo8hX42Y/edit)
 
 ### Learning Objectives
 
 - Practice building larger applications with React
-- Practice using connected-react-router
 - Practice building a system architecture for an application
 - Practice reading and understanding a 3rd-party back-end API
-- Practice using a component library
+- Practice using a UI component library
 - Practice following SCRUM processes and understanding/practicing SCRUM roles
 - Practice communicating/working together as a team
 
@@ -42,4 +35,3 @@ The API you will communicate with is the [SocialApp API](https://socialapp-api.h
 - GitHub repo url - this is the url that has your frontend SocialApp project source code
 - Heroku - this is the url that has your frontend SocialApp project deployed to it
 - SCRUM board - this shows your scrum board which has tickets with descriptions and assignees. It could be a github project board or similar.
-- 5 lessons learned - each lesson should be a couple sentences which describe something significant you learned/experienced that will help you in the next group project to be more prepared. the whole team should contribute ideas for 5 lessons learned.
